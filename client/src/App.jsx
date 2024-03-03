@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import Scroller from "./components/Scroller";
+import Scroller from "./components/Scroller.jsx";
 
 const App = () => {
   return (
