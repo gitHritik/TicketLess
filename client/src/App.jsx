@@ -1,8 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import Scroller from "./components/Scroller";
 
 const App = () => {
-  return <div className="bg-black w-3 h-2">App</div>;
+  return (
+    <>
+      <Scroller />
+    </>
+  );
 };
 
 export default App;
