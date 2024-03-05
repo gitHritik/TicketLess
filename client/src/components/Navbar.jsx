@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Navbar.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -22,9 +23,13 @@ const Navbar = () => {
           Ticketless
         </Link>
         <ul
+<<<<<<< HEAD
           className={
             Mobile ? " max-md:hidden" : "flex flex-col justify-start w-full"
           }
+=======
+          className={Mobile ? " max-md:hidden" : "flex flex-col justify-start "}
+>>>>>>> 234c5105e9e0954a40d409ed5e84e0514f45caf2
           onClick={() => setMobile(false)}
         >
           <Link
@@ -34,10 +39,14 @@ const Navbar = () => {
             Home
           </Link>
 
+<<<<<<< HEAD
           <Link
             to="/booking"
             className="text-white mr-4  max-md:border-b border-gray-700 my-1"
           >
+=======
+          <Link to="/booking" className="text-white mr-4">
+>>>>>>> 234c5105e9e0954a40d409ed5e84e0514f45caf2
             Booking
           </Link>
 
