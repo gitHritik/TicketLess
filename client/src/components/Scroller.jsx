@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { data } from "./data.js";
+import { data } from "../pages/data.js";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 const Scroller = () => {
@@ -17,7 +17,7 @@ const Scroller = () => {
     <>
       <div className="mx-[5rem]">
         <div className="text-[44px] text-center text-[#88563b]  ">
-          <h1 className="font-[900] mx-10 my-5">
+          <h1 className="font-[900] mx-10 my-20">
             Discover the Unseen Corners of the World with Ticketless
           </h1>
         </div>
