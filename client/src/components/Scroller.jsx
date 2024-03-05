@@ -1,23 +1,42 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import { data } from "./data.js";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { useEffect } from "react";
 
 const Scroller = () => {
-  const slideLeft = () => {
+  const [mobile, SetIsmobile] = useState(true);
+
+  useEffect(() => {
+    if (window.innerWidth > "768") {
+      SetIsmobile(false);
+    }
+  }, [mobile]);
+
+  console.log(window.innerWidth);
+  console.log(mobile);
+  function slideLeft() {
     var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 1150;
-  };
+    if (mobile) {
+      slider.scrollLeft = slider.scrollLeft - 260;
+    } else {
+      slider.scrollLeft = slider.scrollLeft - 1115;
+    }
+  }
 
   const slideRight = () => {
     var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 1150;
+    if (mobile) {
+      slider.scrollLeft = slider.scrollLeft + 260;
+    } else {
+      slider.scrollLeft = slider.scrollLeft + 1115;
+    }
   };
   return (
     <>
-      <div className="mx-[5rem]">
-        <div className="text-[44px] text-center text-[#88563b]  ">
-          <h1 className="font-[900] mx-10 my-5">
+      <div className="md:mx-[5rem] mx-[1rem] my-2">
+        <div className="md:text-[64px] text-[16px] text-center text-[#88563b]  ">
+          <h1 className="font-[900] md:mx-10 md:my-5">
             Discover the Unseen Corners of the World with Ticketless
           </h1>
         </div>
@@ -29,11 +48,11 @@ const Scroller = () => {
           />
           <div
             id="slider"
-            className="w-full h-full align-middle m-18 overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide no-scrollbar overflow-y-auto"
+            className="w-full h-full align-middle overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide no-scrollbar overflow-y-auto"
           >
             {data.map((item) => (
               <img
-                className=" h-[550px] object-cover inline-block p-2 cursor-pointer ease-in-out duration-300"
+                className="md:h-[550px] md:w-fit w-[220px] h-[220px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
                 src={item.img}
                 alt="/"
                 key={item}
