@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Navbar.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -12,15 +13,13 @@ const Navbar = () => {
           Ticketless
         </Link>
         <ul
-          className={
-            Mobile ? " max-md:hidden" : "flex flex-col justify-start "
-          } onClick={()=>setMobile(false)}
+          className={Mobile ? " max-md:hidden" : "flex flex-col justify-start "}
+          onClick={() => setMobile(false)}
         >
           <Link to="/" className="text-white mr-4">
             Home
-            
           </Link>
-          
+
           <Link to="/booking" className="text-white mr-4">
             Booking
           </Link>
