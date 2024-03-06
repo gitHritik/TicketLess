@@ -25,7 +25,6 @@ const Navbar = () => {
           className={
             Mobile ? " max-md:hidden" : "flex flex-col justify-start w-full"
           }
-          onClick={() => setMobile(false)}
         >
           <Link
             to="/"
