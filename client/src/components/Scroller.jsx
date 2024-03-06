@@ -1,11 +1,6 @@
 /* eslint-disable no-unused-vars */
-<<<<<<< HEAD
-import React from "react";
-import { data } from "../pages/data.js";
-=======
 import React, { useState } from "react";
-import { data } from "./data.js";
->>>>>>> 234c5105e9e0954a40d409ed5e84e0514f45caf2
+import { data } from "../pages/data.js";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { useEffect } from "react";
 
@@ -39,15 +34,9 @@ const Scroller = () => {
   };
   return (
     <>
-<<<<<<< HEAD
-      <div className="mx-[5rem]">
-        <div className="text-[44px] text-center text-[#88563b]  ">
-          <h1 className="font-[900] mx-10 my-20">
-=======
       <div className="md:mx-[5rem] mx-[1rem] my-2">
         <div className="md:text-[64px] text-[16px] text-center text-[#88563b]  ">
           <h1 className="font-[900] md:mx-10 md:my-5">
->>>>>>> 234c5105e9e0954a40d409ed5e84e0514f45caf2
             Discover the Unseen Corners of the World with Ticketless
           </h1>
         </div>

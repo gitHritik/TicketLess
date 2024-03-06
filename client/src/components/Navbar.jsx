@@ -16,20 +16,15 @@ const Navbar = () => {
   };
   window.addEventListener("scroll", changeNavbarColor);
   return (
-
-       <nav className=" bg-black p-4 max-md:p-7 fixed w-full top-0 z-10"> 
+    <nav className=" bg-black p-4 max-md:p-7 fixed w-full top-0 z-10">
       <div className="container mx-auto flex justify-between items-center ">
         <Link to="/" className=" text-white text-2xl font-bold max-md:hidden">
           Ticketless
         </Link>
         <ul
-<<<<<<< HEAD
           className={
             Mobile ? " max-md:hidden" : "flex flex-col justify-start w-full"
           }
-=======
-          className={Mobile ? " max-md:hidden" : "flex flex-col justify-start "}
->>>>>>> 234c5105e9e0954a40d409ed5e84e0514f45caf2
           onClick={() => setMobile(false)}
         >
           <Link
@@ -39,14 +34,10 @@ const Navbar = () => {
             Home
           </Link>
 
-<<<<<<< HEAD
           <Link
             to="/booking"
-            className="text-white mr-4  max-md:border-b border-gray-700 my-1"
+            className="text-white mr-4 max-md:border-b border-gray-700 my-1"
           >
-=======
-          <Link to="/booking" className="text-white mr-4">
->>>>>>> 234c5105e9e0954a40d409ed5e84e0514f45caf2
             Booking
           </Link>
 
