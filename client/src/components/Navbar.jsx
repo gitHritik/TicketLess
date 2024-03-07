@@ -10,7 +10,7 @@ const Navbar = () => {
   // ${isScrolled ? 'bg-gray-800 text-white' : 'bg-transparent text-black'}
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
+      setIsScrolled(window.scrollY > 40);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -18,7 +18,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   return (
-    <nav className={`bg-transparent p-4 max-md:p-7 fixed w-full top-0 z-10 transition duration-300 ease-in-out ${isScrolled ? 'bg-gray-800 text-white' : 'bg-transparent text-black'}`}>
+    <nav className={`bg-transparent p-4 max-md:p-7 fixed w-full top-0 z-10 transition duration-300  ${isScrolled ? 'bg-gray-800 text-white' : 'bg-transparent text-black'}`}>
     {/* <nav className=" bg-transparent p-4 max-md:p-7 fixed w-full top-0 z-10 transition duration-300 ease-in-out"> */}
       <div className="container mx-auto flex justify-between items-center ">
         <Link to="/" className=" text-white text-[2rem] font-bold max-md:hidden">
