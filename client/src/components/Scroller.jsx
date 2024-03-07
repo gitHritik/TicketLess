@@ -34,8 +34,8 @@ const Scroller = () => {
   };
   return (
     <>
-      <div className="md:mx-[5rem] mx-[1rem] my-2">
-        <div className="md:text-[64px] text-[16px] text-center text-[#88563b]  ">
+      <div className="">
+        <div className="md:text-[64px] text-[20px] text-center text-[#88563b]  ">
           <h1 className="font-[900] md:mx-10 md:my-5">
             Discover the Unseen Corners of the World with Ticketless
           </h1>

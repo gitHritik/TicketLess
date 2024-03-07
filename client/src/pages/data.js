@@ -48,3 +48,24 @@ export const data = [
     img: "https://images.unsplash.com/photo-1542262868-cec49cce6571?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTB8fG9jZWFufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=800&q=60",
   },
 ];
+
+export const cardData = [
+  {
+    title: "Most Visited",
+    description:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolore adipisci placeat.",
+    img: "https://cdn.pixabay.com/photo/2017/04/05/01/10/natural-history-museum-2203648_1280.jpg",
+  },
+  {
+    title: "Most Popular",
+    description:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolore adipisci placeat.",
+    img: "https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg",
+  },
+  {
+    title: "Most Trendy",
+    description:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolore adipisci placeat.",
+    img: "https://cdn.pixabay.com/photo/2020/02/11/16/25/pisa-4840084_960_720.jpg",
+  },
+];
