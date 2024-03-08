@@ -4,7 +4,7 @@ import NewCard from "./NewCard.jsx";
 
 const Cards = () => {
   return (
-    <div className="md:mx-[126px] md:my-[22px] !my-14">
+    <div className=" bg-[#F6F6F6] !my-14 ">
       <NewCard />
     </div>
   );

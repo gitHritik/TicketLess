@@ -5,7 +5,7 @@ import banner from "../images/indian-museum.jpg";
 const Unleash = () => {
   return (
     <>
-      <div className="w-[100%] bg-gray-100 mt-20">
+      <div className="w-[100%] mt-20 bg-[#F6F6F6]">
         <div className="md:text-[40px] text-[14px] text-center text-[#88563b]  ">
           <h1 className="font-[900] md:mx-10 md:my-3 pt-8">
             Unleash Your Adventurous Spirit in Ticketless

@@ -22,9 +22,9 @@ const App = () => {
         </Routes>
         <div className="md:mx-[1rem] mx-[1rem] my-2">
           <Scroller />
-          <Unleash />
-          <Cards />
         </div>
+        <Unleash />
+        <Cards />
       </BrowserRouter>
     </>
   );

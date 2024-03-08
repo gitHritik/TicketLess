@@ -19,7 +19,7 @@ const Bannerhome = () => {
           Find your perfect getaway to tropical beaches and exotic landscapes
         </p>
         <button className="bg-amber-800 hover:bg-amber-700 text-white font-bold py-3 px-7 rounded text-2xl mt-10  max-md:text-1xl max-md:py-2 max-md:px-4">
-          DISCOVER MORE
+          CLICK HERE FOR BOOKING
         </button>
       </div>
     </>
