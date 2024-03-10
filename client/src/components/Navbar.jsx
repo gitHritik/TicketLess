@@ -19,8 +19,9 @@ const Navbar = () => {
   }, []);
   return (
     <nav
-      className={`bg-transparent p-4 max-md:p-7 fixed w-full top-0 z-10 transition duration-300  ${
-        isScrolled ? "bg-gray-800 text-white" : "bg-transparent text-black"
+      className={`bg-gray-800 p-4 max-md:p-7 fixed w-full top-0 z-10 transition duration-300  ${
+        isScrolled ? "bg-gray-800 text-white hidden" : "bg-gray-800 text-white"
+        // isScrolled ? "bg-gray-800 text-white" : "bg-transparent text-black"
       }`}
     >
       {/* <nav className=" bg-transparent p-4 max-md:p-7 fixed w-full top-0 z-10 transition duration-300 ease-in-out"> */}
@@ -73,7 +74,7 @@ const Navbar = () => {
             Login/Signup
           </Link>
         </ul>
-        <hr className="max-md:hidden  absolute top-20 border-gray-700 w-[90%] items-center" />
+        {/* <hr className="max-md:hidden  absolute top-20 border-gray-700 w-[90%] items-center" /> */}
         <button
           className="md:hidden bg-slate-50 fixed top-5 right-5 text-black"
           onClick={() => setMobile(!Mobile)}

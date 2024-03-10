@@ -9,6 +9,7 @@ import Bannerhome from "./components/Bannerhome.jsx";
 import Home from "./pages/Home.jsx";
 import Unleash from "./components/Unleash.jsx";
 import Cards from "./components/Cards.jsx";
+import Footer from "./components/Footer.jsx";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Scroller />
           <Unleash />
           <Cards />
+          <Footer/>
         </div>
       </BrowserRouter>
     </>
