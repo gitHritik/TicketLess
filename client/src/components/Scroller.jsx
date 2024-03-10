@@ -35,7 +35,7 @@ const Scroller = () => {
   return (
     <>
       <div className="">
-        <div className="md:text-[64px] text-[20px] text-center text-[#88563b]  ">
+        <div className="md:text-[50px] text-[20px] text-center text-[#88563b]  ">
           <h1 className="font-[900] md:mx-10 md:my-5">
             Discover the Unseen Corners of the World with Ticketless
           </h1>
@@ -48,11 +48,11 @@ const Scroller = () => {
           />
           <div
             id="slider"
-            className="w-full h-full align-middle overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide no-scrollbar overflow-y-auto"
+            className="w-full md:mx-16 h-full justify-center align-middle overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide no-scrollbar overflow-y-auto"
           >
             {data.map((item) => (
               <img
-                className="md:h-[550px] md:w-fit w-[220px] h-[220px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
+                className="md:h-[550px] md:w-[420px] w-[220px] h-[220px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
                 src={item.img}
                 alt="/"
                 key={item}

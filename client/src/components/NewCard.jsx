@@ -3,14 +3,18 @@ import React from "react";
 import { cardData } from "../pages/data.js";
 const NewCard = () => {
   return (
+<<<<<<< HEAD
     <div className="flex  items-center justify-center ">
+=======
+    <div className="flex min-h-screen items-center justify-center md:mx-[126px] md:my-[22px] ">
+>>>>>>> d308915db19683520cb57d1dad60599d00a2d734
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {cardData.map((item) => (
           <div
             key={item}
             className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30"
           >
-            <div className="h-[30rem] w-[30rem">
+            <div className="md:h-[30rem] md:w-[30rem] h-[20rem] w-[20rem]">
               <img
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125"
                 src={item.img}

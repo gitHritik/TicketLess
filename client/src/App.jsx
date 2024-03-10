@@ -23,10 +23,15 @@ const App = () => {
         </Routes>
         <div className="md:mx-[1rem] mx-[1rem] my-2">
           <Scroller />
+<<<<<<< HEAD
           <Unleash />
           <Cards />
           <Footer/>
+=======
+>>>>>>> d308915db19683520cb57d1dad60599d00a2d734
         </div>
+        <Unleash />
+        <Cards />
       </BrowserRouter>
     </>
   );
