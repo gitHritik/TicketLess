@@ -1,9 +1,12 @@
 /* eslint-disable no-unused-vars */
 // Navbar.js
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
+import Login from "../pages/Login.jsx";
+import Register from "../pages/Register.jsx";
+
 const Navbar = () => {
   const [Mobile, setMobile] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,6 +20,12 @@ const Navbar = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const [showLogin, setShowLogin] = useState(false);
+  const handleCloseLogin = () => setShowLogin(false);
+
+  const [showRegister, setShowRegister] = useState(false);
+  const handleCloseRegister = () => setShowRegister(false);
   return (
     <nav
       className={`bg-transparent p-4 max-md:p-7 fixed w-full top-0 z-10 transition duration-300  ${
@@ -58,7 +67,7 @@ const Navbar = () => {
           </Link>
           <Link
             to="/about"
-            className="text-white mr-4  max-md:border-b border-gray-700 my-1 "
+            className="text-white mr-4 max-md:border-b border-gray-700 my-1 "
           >
             About us
           </Link>
@@ -69,8 +78,14 @@ const Navbar = () => {
           >
             Contact us
           </Link>
-          <Link to="/login" className="text-white mr-4 ">
-            Login/Signup
+          <Link className="text-white mr-4 " onClick={() => setShowLogin(true)}>
+            Login
+          </Link>
+          <Link
+            className="text-white mr-4 "
+            onClick={() => setShowRegister(true)}
+          >
+            Signup
           </Link>
         </ul>
         <hr className="max-md:hidden  absolute top-20 border-gray-700 w-[90%] items-center" />
@@ -81,6 +96,8 @@ const Navbar = () => {
           {Mobile ? <IoMdMenu /> : <RxCross2 />}
         </button>
       </div>
+      <Login onClose={handleCloseLogin} visible={showLogin} />
+      <Register onClose={handleCloseRegister} visible={showRegister} />
     </nav>
   );
 };

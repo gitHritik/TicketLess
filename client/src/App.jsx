@@ -9,6 +9,8 @@ import Bannerhome from "./components/Bannerhome.jsx";
 import Home from "./pages/Home.jsx";
 import Unleash from "./components/Unleash.jsx";
 import Cards from "./components/Cards.jsx";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
         <Routes>
           <Route exact path="/" component={<Home />} />
           <Route path="/about" component={<About />} />
+          <Route path="/login" component={<Login />} />
+          <Route path="/signup" component={<Register />} />
         </Routes>
         <div className="md:mx-[1rem] mx-[1rem] my-2">
           <Scroller />
