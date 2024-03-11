@@ -3,7 +3,7 @@ import React from "react";
 import { cardData } from "../pages/data.js";
 const NewCard = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center md:mx-[126px] md:my-[22px] ">
+    <div className="flex  items-center justify-center ">
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {cardData.map((item) => (
           <div
