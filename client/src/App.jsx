@@ -1,38 +1,26 @@
 // App.js
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar.jsx";
-import About from "./pages/About.jsx";
-import Scroller from "./components/Scroller.jsx";
-import Bannerhome from "./components/Bannerhome.jsx";
+import {  Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import Unleash from "./components/Unleash.jsx";
-import Cards from "./components/Cards.jsx";
-import Footer from "./components/Footer.jsx";
-
+import Booking from "./pages/Booking.jsx";
+import About from "./pages/About.jsx";
+import Cancellation from './pages/Cancellation.jsx'
+import Login from './pages/Login.jsx'
+import Contact from './pages/Contact.jsx'
 const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <Bannerhome />
-        <Routes>
-          <Route exact path="/" component={<Home />} />
-          <Route path="/about" component={<About />} />
-        </Routes>
-        <div className="md:mx-[1rem] mx-[1rem] my-2">
-          <Scroller />
-<<<<<<< HEAD
-          <Unleash />
-          <Cards />
-          <Footer/>
-=======
->>>>>>> d308915db19683520cb57d1dad60599d00a2d734
-        </div>
-        <Unleash />
-        <Cards />
-      </BrowserRouter>
+     
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/booking" element={<Booking />} />
+        <Route path="/cancellation" element={<Cancellation />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+     
     </>
   );
 };
