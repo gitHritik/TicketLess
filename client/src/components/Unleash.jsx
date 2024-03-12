@@ -18,7 +18,7 @@ const Unleash = () => {
           </h1>
         </div>
         {/* <GrFormPreviousLink className=" text-white text-4xl absolute font-hairline mt-[14%] left-[250px] bg-gray-800 rounded-[50%]" /> */}
-        <div className=" max-[550px]:w-[90%]  max-[550px]:flex max-[550px]:flex-col w-[65%] m-auto flex flex-no-wrap overflow-x-scroll items-start mb-2 scroll-smooth o-scrollbar scrollbar-hide">
+        <div className="max-[550px]:w-[90%]  max-[550px]:flex max-[550px]:flex-col w-[65%] m-auto flex flex-no-wrap overflow-x-scroll items-start mb-2 scroll-smooth o-scrollbar scrollbar-hide">
           {unleashData.map((item) => (
             <div className=" mb-5 block bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 flex-none w-2/3 md:w-1/3 mr-2 md:pb-4 border rounded-lg">
               <div className="relative overflow-hidden bg-cover bg-no-repeat  ">
