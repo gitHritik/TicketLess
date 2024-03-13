@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
@@ -24,6 +25,19 @@ const Navbar = () => {
 
   const [showRegister, setShowRegister] = useState(false);
   const handleCloseRegister = () => setShowRegister(false);
+  const [currentForm, setCurrentForm] = useState("login");
+
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+    if (formName == "login") {
+      setShowLogin(true);
+      setShowRegister(false);
+    }
+    if (formName == "register") {
+      setShowLogin(false);
+      setShowRegister(true);
+    }
+  };
   return (
     <>
       <nav
@@ -96,8 +110,21 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-      <Login onClose={handleCloseLogin} visible={showLogin} />
-      <Register onClose={handleCloseRegister} visible={showRegister} />
+      {/* <Login onClose={handleCloseLogin} visible={showLogin} />
+      <Register onClose={handleCloseRegister} visible={showRegister} /> */}
+      {currentForm === "login" ? (
+        <Login
+          onClose={handleCloseLogin}
+          visible={showLogin}
+          onFormSwitch={toggleForm}
+        />
+      ) : (
+        <Register
+          onClose={handleCloseRegister}
+          visible={showRegister}
+          onFormSwitch={toggleForm}
+        />
+      )}
     </>
   );
 };

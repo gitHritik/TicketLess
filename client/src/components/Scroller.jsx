@@ -13,8 +13,6 @@ const Scroller = () => {
     }
   }, [mobile]);
 
-  console.log(window.innerWidth);
-  console.log(mobile);
   function slideLeft() {
     var slider = document.getElementById("slider");
     if (mobile) {

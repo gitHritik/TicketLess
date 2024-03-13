@@ -2,11 +2,14 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 
-const Register = ({ visible, onClose }) => {
+const Register = ({ visible, onClose, onFormSwitch }) => {
   if (!visible) return null;
   const handleOnClose = (e) => {
-    if (e.target.id === "container") onClose();
+    if (e.target.id === "container") {
+      onClose();
+    }
   };
+  console.log(onclose);
   return (
     <div
       id="container"
@@ -35,7 +38,10 @@ const Register = ({ visible, onClose }) => {
           <input className="mr-2" type="checkbox" />
           Remember Me
         </p>
-        <p className="text-center mt-8">Not a member? Sign up now</p>
+        <p className="text-center mt-8">
+          Already a Memeber ?
+          <span onClick={() => onFormSwitch("login")}> Login now</span>{" "}
+        </p>
       </form>
     </div>
   );

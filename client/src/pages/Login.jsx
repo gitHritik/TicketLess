@@ -4,11 +4,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-const Login = ({ visible, onClose }) => {
+const Login = ({ visible, onClose, onFormSwitch }) => {
   if (!visible) return null;
   const handleOnClose = (e) => {
-    if (e.target.id === "container") onClose();
+    if (e.target.id === "container") {
+      onClose();
+      visible == null;
+    }
   };
+
+  console.log(onclose);
   return (
     <div
       id="container"
@@ -34,7 +39,8 @@ const Login = ({ visible, onClose }) => {
           Remember Me
         </p>
         <p className="text-center mt-8">
-          Not a member? <Link to="/signup">Sign up now</Link>
+          Not a member?{" "}
+          <span onClick={() => onFormSwitch("register")}>Sign up now</span>
         </p>
       </form>
     </div>

@@ -107,3 +107,59 @@ export const unleashData = [
     price: "209",
   },
 ];
+export const unleashDataMuseum = [
+  {
+    location: "LOCATION",
+    title: "Most Visited",
+    description:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolore adipisci placeat.",
+    img: "https://cdn.pixabay.com/photo/2017/04/05/01/10/natural-history-museum-2203648_1280.jpg",
+    rating: "4.8",
+    price: "209",
+  },
+  {
+    location: "LOCATION",
+    title: "Most Popular",
+    description:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolore adipisci placeat.",
+    img: "https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg",
+    rating: "4.8",
+    price: "209",
+  },
+  {
+    location: "LOCATION",
+    title: "Most Trendy",
+    description:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolore adipisci placeat.",
+    img: "https://cdn.pixabay.com/photo/2020/02/11/16/25/pisa-4840084_960_720.jpg",
+    rating: "4.8",
+    price: "209",
+  },
+  {
+    location: "LOCATION",
+    title: "Most Visited",
+    description:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolore adipisci placeat.",
+    img: "https://cdn.pixabay.com/photo/2017/04/05/01/10/natural-history-museum-2203648_1280.jpg",
+    rating: "4.8",
+    price: "209",
+  },
+  {
+    location: "LOCATION",
+    title: "Most Popular",
+    description:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolore adipisci placeat.",
+    img: "https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg",
+    rating: "4.8",
+    price: "209",
+  },
+  {
+    location: "LOCATION",
+    title: "Most Trendy",
+    description:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolore adipisci placeat.",
+    img: "https://cdn.pixabay.com/photo/2020/02/11/16/25/pisa-4840084_960_720.jpg",
+    rating: "4.8",
+    price: "209",
+  },
+];
