@@ -21,11 +21,16 @@ const Navbar = () => {
   }, []);
 
   const [showLogin, setShowLogin] = useState(false);
-  const handleCloseLogin = () => setShowLogin(false);
-
   const [showRegister, setShowRegister] = useState(false);
-  const handleCloseRegister = () => setShowRegister(false);
   const [currentForm, setCurrentForm] = useState("login");
+  const handleCloseLogin = () => {
+    setShowLogin(false);
+    setCurrentForm("login");
+  };
+  const handleCloseRegister = () => {
+    setShowRegister(false);
+    setCurrentForm("login");
+  };
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);
@@ -38,6 +43,10 @@ const Navbar = () => {
       setShowRegister(true);
     }
   };
+
+  console.log("Login:", showLogin);
+  console.log("register:", showRegister);
+  console.log(currentForm);
   return (
     <>
       <nav

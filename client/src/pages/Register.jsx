@@ -7,9 +7,10 @@ const Register = ({ visible, onClose, onFormSwitch }) => {
   const handleOnClose = (e) => {
     if (e.target.id === "container") {
       onClose();
+      visible == null;
     }
   };
-  console.log(onclose);
+
   return (
     <div
       id="container"

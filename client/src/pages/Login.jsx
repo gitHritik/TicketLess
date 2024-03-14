@@ -13,7 +13,6 @@ const Login = ({ visible, onClose, onFormSwitch }) => {
     }
   };
 
-  console.log(onclose);
   return (
     <div
       id="container"
