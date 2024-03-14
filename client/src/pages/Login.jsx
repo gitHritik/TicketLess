@@ -39,7 +39,12 @@ const Login = ({ visible, onClose, onFormSwitch }) => {
         </p>
         <p className="text-center mt-8">
           Not a member?{" "}
-          <span onClick={() => onFormSwitch("register")}>Sign up now</span>
+          <span
+            className="cursor-pointer"
+            onClick={() => onFormSwitch("register")}
+          >
+            Sign up now
+          </span>
         </p>
       </form>
     </div>

@@ -40,8 +40,13 @@ const Register = ({ visible, onClose, onFormSwitch }) => {
           Remember Me
         </p>
         <p className="text-center mt-8">
-          Already a Memeber ?
-          <span onClick={() => onFormSwitch("login")}> Login now</span>{" "}
+          Already a Memeber?{" "}
+          <span
+            className="cursor-pointer"
+            onClick={() => onFormSwitch("login")}
+          >
+            Login now
+          </span>{" "}
         </p>
       </form>
     </div>
