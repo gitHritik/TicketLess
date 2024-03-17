@@ -163,3 +163,61 @@ export const unleashDataMuseum = [
     price: "209",
   },
 ];
+export const Aboutofferdata = [
+  {
+    title: "Stay flexiblr",
+    description:
+      "Flexible cancellation option on all venue.",
+    img: "https://cdn.pixabay.com/photo/2017/04/05/01/10/natural-history-museum-2203648_1280.jpg",
+  },
+  {
+    title: "Book with confidence",
+    description:
+      "Flexible cancellation option on all venue.",
+    img: "https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg",
+  },
+  {
+    title: "Enjoy culture your way",
+    description:
+      "Flexible cancellation option on all venue.",
+    img: "https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg",
+  },
+];
+export const AboutTeamdata = [
+  {
+    title: "Stay flexiblr",
+    description:
+      "Flexible cancellation option on all venue.",
+    img: "https://cdn.pixabay.com/photo/2017/04/05/01/10/natural-history-museum-2203648_1280.jpg",
+  },
+  {
+    title: "Book with confidence",
+    description:
+      "Flexible cancellation option on all venue.",
+    img: "https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg",
+  },
+  {
+    title: "Enjoy culture your way",
+    description:
+      "Flexible cancellation option on all venue.",
+    img: "https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg",
+  },
+  {
+    title: "Enjoy culture your way",
+    description:
+      "Flexible cancellation option on all venue.",
+    img: "https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg",
+  },
+  {
+    title: "Enjoy culture your way",
+    description:
+      "Flexible cancellation option on all venue.",
+    img: "https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg",
+  },
+  {
+    title: "Enjoy culture your way",
+    description:
+      "Flexible cancellation option on all venue.",
+    img: "https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg",
+  },
+];
