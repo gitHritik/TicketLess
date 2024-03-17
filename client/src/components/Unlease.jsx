@@ -34,7 +34,7 @@ function Unlease() {
             Unleash Your Adventurous Spirit in Ticketless
           </h1>
         </div>
-        <div className=" md:w-full mb-2 ml-[20px] md:ml-0 ">
+        <div className=" md:w-full mb-2 ml-[32px] md:ml-0 ">
           <Slider {...settings} className="w-[248px] md:w-full">
             {unleashData.map((d) => (
               <div
