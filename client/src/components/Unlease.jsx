@@ -27,15 +27,15 @@ function Unlease() {
     ],
   };
   return (
-    <div className="bg-gray-100">
-      <div className="md:w-3/4 m-auto  ">
+    <div className="bg-gray-100 flex">
+      <div className="md:w-3/4 m-auto flex flex-col justify-center align-middle ">
         <div className="md:text-[40px] text-[14px] text-center text-[#88563b]  ">
           <h1 className="font-[900] md:mx-10 md:my-3 py-4">
             Unleash Your Adventurous Spirit in Ticketless
           </h1>
         </div>
-        <div className="items-start w-[246px] md:w-full mb-2 ml-[20px] md:ml-0 ">
-          <Slider {...settings} className="w-[392px] md:w-full">
+        <div className=" md:w-full mb-2 ml-[20px] md:ml-0 ">
+          <Slider {...settings} className="w-[248px] md:w-full">
             {unleashData.map((d) => (
               <div
                 key={d.item}
@@ -45,7 +45,7 @@ function Unlease() {
                   <img
                     src={d.img}
                     alt=""
-                    className="rounded-t-lg md:w-[347px] md:h-[270px] w-[167px] h-[117px]"
+                    className="rounded-t-lg md:w-[347px] md:h-[270px] w-[228px] h-[149px]"
                   />
                 </div>
 

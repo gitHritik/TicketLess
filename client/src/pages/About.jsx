@@ -1,12 +1,15 @@
+/* eslint-disable react/no-unescaped-entities */
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import banner from '../images/indian-museum1.jpg'
+import banner from "../images/indian-museum1.jpg";
 import AboutSections from "../components/AboutSections";
 import AboutTeam from "../components/AboutTeam";
-import Footer from '../components/Footer'
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 const About = () => {
   return (
     <>
+      <Navbar />
       <div
         className=" bg-cover bg-no-repeat bg-center h-[250px] flex flex-col justify-center items-center z-10 "
         style={{
@@ -19,13 +22,13 @@ const About = () => {
         </h1>
       </div>
       <div className="about_details text-center my-24">
-        <p className="max-[1210px]:w-[40%] max-[1210px]:w-[60%] max-[650px]:w-[90%] max-[440px]:text-[12px] w-[32%] m-auto text-black text-[18px]">
+        <p className="min-[1210px]:w-[40%] max-[1210px]:w-[60%] max-[650px]:w-[90%] max-[440px]:text-[12px] w-[32%] m-auto text-black text-[18px]">
           Tiqets is an online booking platform for museums and attractions that
           connects travelers worldwide with more ways to experience culture.
         </p>
       </div>
       <div className=" w-[70%] flex m-auto my-75 max-[800px]:flex-col-reverse">
-        <div className="text1 w-[45%]  m-auto min-h-[350px] max-[800px]:w-[70%] max-[800px]:w-[90%]">
+        <div className="text1 w-[45%]  m-auto min-h-[350px] min-[800px]:w-[70%] max-[800px]:w-[90%]">
           <p className=" text-[25px] w-[100%]  m-auto">
             Making culture more accessible
           </p>
@@ -54,7 +57,7 @@ const About = () => {
       <section>
         <AboutTeam />
       </section>
-      <Footer/>
+      <Footer />
     </>
   );
 };

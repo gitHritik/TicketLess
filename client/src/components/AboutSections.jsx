@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Aboutofferdata } from "../pages/data";
 const AboutSections = () => {
