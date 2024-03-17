@@ -45,7 +45,7 @@ const About = () => {
         <div className="image w-[40%] m-auto max-[800px]:w-[70%] max-[800px]:mb-4 max-[800px]:w-[90%]">
           <img
             src="https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg"
-            className="max-w-80% min-h-[350px] "
+            className="max-w-80% md:min-h-[350px] "
             alt=""
           />
         </div>
