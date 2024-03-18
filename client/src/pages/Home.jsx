@@ -8,8 +8,6 @@ import Footer from "../components/Footer.jsx";
 import Unlease from "../components/Unlease.jsx";
 import UnleaseMuseum from "../components/UnleaseMuseum.jsx";
 
-
-
 const Home = () => {
   return (
     <>
@@ -18,10 +16,8 @@ const Home = () => {
       <div className="md:mx-[1rem] mx-[1rem] my-2">
         <Scroller />
       </div>
- 
       <Unlease />
       <UnleaseMuseum />
-
       <Cards />
       <Footer />
     </>
