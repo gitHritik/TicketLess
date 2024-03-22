@@ -5,6 +5,7 @@ import { BiCommentDetail } from "react-icons/bi";
 import PopularPlaces from "../components/PopularPlaces";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 const DestInfromation = () => {
   useLayoutEffect(() => {
@@ -64,9 +65,11 @@ const DestInfromation = () => {
           </div>
         </div>
         <div className="w-full text-center mt-7">
-          <button className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-            Book Tickets
-          </button>
+          <Link to="/id/booktickets">
+            <button className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+              Book Tickets
+            </button>
+          </Link>
         </div>
 
         <div className="flex text-center justify-around align-middle mt-8 md:w-full">

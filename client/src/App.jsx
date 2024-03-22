@@ -7,7 +7,7 @@ import Home from "./pages/Home.jsx";
 import Booking from "./pages/Booking.jsx";
 import About from "./pages/About.jsx";
 import Cancellation from "./pages/Cancellation.jsx";
-
+import Booktickets from './components/Booktickets.jsx'
 import Contact from "./pages/Contact.jsx";
 import DestInfromation from "./pages/DestInformation.jsx";
 
@@ -21,6 +21,7 @@ const App = () => {
         <Route path="/cancellation" element={<Cancellation />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/id/info" element={<DestInfromation />} />
+        <Route path="/id/booktickets" element={<Booktickets />} />
       </Routes>
     </>
   );
