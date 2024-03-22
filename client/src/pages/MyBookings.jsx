@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import Bookings from "../components/Bookings";
 import banner from "../images/indian-museum1.jpg";
 import Navbar from "../components/Navbar";
+import { useState } from "react";
 
 const MyBookings = () => {
   return (

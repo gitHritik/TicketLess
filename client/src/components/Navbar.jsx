@@ -44,9 +44,6 @@ const Navbar = () => {
     }
   };
 
-  console.log("Login:", showLogin);
-  console.log("register:", showRegister);
-  console.log(currentForm);
   return (
     <>
       <nav
