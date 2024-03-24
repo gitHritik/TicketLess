@@ -1,10 +1,16 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import banner from "../images/indian-museum1.jpg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Bannerhome = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <>
-      <div className="relative">
+      <div className="relative" data-aos="fade-up">
         <div
           className=" bg-cover bg-no-repeat bg-center h-[550px] flex flex-col justify-center items-center z-10 "
           style={{
@@ -32,27 +38,27 @@ const Bannerhome = () => {
                 aria-describedby="button-addon3"
               />
             </div> */}
-              <div class="max-w-md mx-auto">
-                <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
-                  <div class="grid place-items-center h-full w-12 text-gray-300">
+              <div className="max-w-md mx-auto">
+                <div className="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
+                  <div className="grid place-items-center h-full w-12 text-gray-300">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
+                      className="h-6 w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                       />
                     </svg>
                   </div>
 
                   <input
-                    class="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
+                    className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
                     type="text"
                     id="search"
                     placeholder="Search something.."

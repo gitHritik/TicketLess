@@ -1,10 +1,16 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import { Aboutofferdata } from "../pages/data";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const AboutSections = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <>
-      <div className=" offer my-6 pb-8 bg-slate-100">
+      <div className=" offer my-6 pb-8 bg-slate-100" data-aos="fade-up">
         <div className="offer w-[70%] m-auto max-[600px]:w-[95%]">
           <div className="text text-center py-8 font-bold text-3xl text-gray-700 m-auto">
             What we offer

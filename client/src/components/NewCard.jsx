@@ -1,9 +1,18 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import { cardData } from "../pages/data.js";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const NewCard = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
-    <div className="flex min-h-screen items-center justify-center md:mx-[126px] md:my-[22px] ">
+    <div
+      className="flex min-h-screen items-center justify-center md:mx-[126px] md:my-[22px] "
+      data-aos="fade-up"
+    >
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {cardData.map((item) => (
           <div

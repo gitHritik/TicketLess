@@ -1,11 +1,17 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import { AboutTeamdata } from "../pages/data";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AboutTeam = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <>
-      <div className=" offer mt-4 pb-8 bg-white">
+      <div className=" offer mt-4 pb-8 bg-white" data-aos="fade-up">
         <div className="offer w-[60%] m-auto max-[830px]:w-[85%] max-[540px]:w-[95%]">
           <div className="text text-center py-8 font-bold text-3xl text-gray-700 m-auto">
             Meet the management team

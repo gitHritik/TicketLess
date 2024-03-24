@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import { unleashDataMuseum } from "../pages/data";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 function UnleaseMuseum() {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <div className="">
-      <div className="md:w-3/4 w-full m-auto  ">
+      <div className="md:w-3/4 w-full m-auto " data-aos="fade-up">
         <div className="md:text-[40px] text-[14px] text-center text-[#88563b]  ">
           <h1 className="font-[900] md:mx-10 md:my-3 py-4">
             Explore Antics and Historical Items

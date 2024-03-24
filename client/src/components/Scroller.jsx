@@ -3,8 +3,14 @@ import React, { useState } from "react";
 import { data } from "../pages/data.js";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Scroller = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   const [mobile, SetIsmobile] = useState(true);
 
   useEffect(() => {
@@ -32,7 +38,7 @@ const Scroller = () => {
   };
   return (
     <>
-      <div className="">
+      <div className="" data-aos="fade-up">
         <div className="md:text-[50px] text-[20px] text-center text-[#88563b]  ">
           <h1 className="font-[900] md:mx-10 md:my-5">
             Discover the Unseen Corners of the World with Ticketless

@@ -1,19 +1,25 @@
 /* eslint-disable no-unused-vars */
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { AiOutlineArrowRight, AiOutlineHeart } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
 import PopularPlaces from "../components/PopularPlaces";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const DestInfromation = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   });
   return (
-    <>
+    <div>
       <Navbar />
-      <article className="">
+      <article className="" data-aos="fade-up">
         <div className="mb-4 md:mb-0 w-full mx-auto relative">
           <img
             src="https://cdn.pixabay.com/photo/2017/04/05/01/10/natural-history-museum-2203648_1280.jpg"
@@ -92,7 +98,7 @@ const DestInfromation = () => {
         <PopularPlaces tags="Museum" />
       </article>
       <Footer />
-    </>
+    </div>
   );
 };
 
