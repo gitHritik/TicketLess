@@ -17,7 +17,7 @@ const DestInfromation = () => {
     window.scrollTo(0, 0);
   });
   return (
-    <div>
+    <div className="md:block">
       <Navbar />
       <article className="" data-aos="fade-up">
         <div className="mb-4 md:mb-0 w-full mx-auto relative">
@@ -94,9 +94,8 @@ const DestInfromation = () => {
             </a>
           </div>
         </div>
-
-        <PopularPlaces tags="Museum" />
       </article>
+      <PopularPlaces tags="Museum" />
       <Footer />
     </div>
   );
