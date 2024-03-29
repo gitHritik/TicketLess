@@ -87,7 +87,10 @@ const MostVisited = ({ title }) => {
           </div>
         </div>
         <Link to="/">
-          <div className="fixed bottom-10  m-auto left-0 right-0 bg-black w-48 h-12 flex items-center justify-center rounded-md shadow-md cursor-pointer">
+          <div
+            data-aos="fade-up"
+            className="fixed bottom-10  m-auto left-0 right-0 bg-black w-48 h-12 flex items-center justify-center rounded-md shadow-md cursor-pointer"
+          >
             <p className="capitalize font-bold text-white">Go Back</p>
           </div>
         </Link>
