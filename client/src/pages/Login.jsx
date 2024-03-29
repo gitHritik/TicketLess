@@ -17,7 +17,7 @@ const Login = ({ visible, onClose, onFormSwitch }) => {
     <div
       id="container"
       onClick={handleOnClose}
-      className="flex justify-center items-center align-middle h-full fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-10"
+      className="flex justify-center  items-center align-middle h-full fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-10"
     >
       <form className="max-w-[400px] w-full mx-auto mt-11 bg-white p-8 max-[600px]:w-[340px] max-[400px]:w-[300px]">
         <h2 className="text-[33px] font-bold text-center">Login</h2>

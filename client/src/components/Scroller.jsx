@@ -24,7 +24,7 @@ const Scroller = () => {
     if (mobile) {
       slider.scrollLeft = slider.scrollLeft - 260;
     } else {
-      slider.scrollLeft = slider.scrollLeft - 1115;
+      slider.scrollLeft = slider.scrollLeft - 800;
     }
   }
 
@@ -33,7 +33,7 @@ const Scroller = () => {
     if (mobile) {
       slider.scrollLeft = slider.scrollLeft + 260;
     } else {
-      slider.scrollLeft = slider.scrollLeft + 1115;
+      slider.scrollLeft = slider.scrollLeft + 800;
     }
   };
   return (

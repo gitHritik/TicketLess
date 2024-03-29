@@ -11,6 +11,9 @@ import DestInfromation from "./pages/DestInformation.jsx";
 import MyBookings from "./pages/MyBookings.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import MostVisited from "./pages/MostVisited.jsx";
+import MostPopular from "./pages/MostPopular.jsx";
+import MostTrendy from "./pages/MostTrendy.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -27,6 +30,18 @@ const App = () => {
         <Route path="/cancellation" element={<Cancellation />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/id/info" element={<DestInfromation />} />
+        <Route
+          path="/Most Visited"
+          element={<MostVisited title="Most Visisted" />}
+        />
+        <Route
+          path="/Most Popular"
+          element={<MostPopular title="Most Popular" />}
+        />
+        <Route
+          path="/Most Trendy"
+          element={<MostTrendy title="Most Trendy" />}
+        />
       </Routes>
       {/* </div> */}
     </>
