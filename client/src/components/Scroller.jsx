@@ -5,6 +5,7 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 const Scroller = () => {
   useEffect(() => {
@@ -54,14 +55,16 @@ const Scroller = () => {
             id="slider"
             className="w-full md:mx-16 h-full justify-center align-middle overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide no-scrollbar overflow-y-auto"
           >
-            {data.map((item) => (
-              <img
-                className="md:h-[550px] md:w-[420px] w-[220px] h-[220px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
-                src={item.img}
-                alt="/"
-                key={item}
-              />
-            ))}
+            <Link to="/id/info">
+              {data.map((item) => (
+                <img
+                  className="md:h-[550px] md:w-[420px] w-[220px] h-[220px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
+                  src={item.img}
+                  alt="/"
+                  key={item}
+                />
+              ))}
+            </Link>
           </div>
           <MdChevronRight
             className="opacity-50 cursor-pointer hover:opacity-100"

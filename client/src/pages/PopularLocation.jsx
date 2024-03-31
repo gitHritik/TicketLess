@@ -2,7 +2,6 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { AiOutlineArrowRight, AiOutlineHeart } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
-import PopularPlaces from "../components/PopularPlaces";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import AOS from "aos";
@@ -10,7 +9,7 @@ import "aos/dist/aos.css";
 import Comment from "../components/Comment";
 import { FaHeart } from "react-icons/fa";
 
-const DestInfromation = () => {
+const PopularLocations = () => {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -18,21 +17,19 @@ const DestInfromation = () => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
   const [showComment, setShowCommment] = useState(false);
   const [showHeart, setShowHeart] = useState(true);
-  // const [color,setColor] = useState(white)
+
   const handleCloseComment = () => {
     setShowCommment(false);
   };
-
   const handleClick = () => {
     setShowHeart(!showHeart);
   };
   return (
     <div className="md:block">
       <Navbar />
-      <article className="" data-aos="fade-up">
+      <article className="mb-4" data-aos="fade-up">
         <div className="mb-4 md:mb-0 w-full mx-auto relative">
           <img
             src="https://cdn.pixabay.com/photo/2017/04/05/01/10/natural-history-museum-2203648_1280.jpg"
@@ -105,7 +102,6 @@ const DestInfromation = () => {
             ) : (
               <FaHeart className="text-red-500 " />
             )}
-
             <span className="text-gray-600">120 likes</span>
           </div>
           <div className="flex items-center space-x-2 ">
@@ -120,11 +116,9 @@ const DestInfromation = () => {
         </div>
       </article>
       <Comment onClose={handleCloseComment} visible={showComment} />
-
-      <PopularPlaces tags="Museum" />
       <Footer />
     </div>
   );
 };
 
-export default DestInfromation;
+export default PopularLocations;

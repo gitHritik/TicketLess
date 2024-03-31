@@ -13,7 +13,7 @@ const PopularPlaces = ({ tags }) => {
   }, []);
   return (
     <section
-      className="text-gray-600 mt-12 md:ml-[150px] md:mr-[150px] flex flex-col md:justify-center md:align-middle"
+      className="text-gray-600 mt-12 z-50 md:ml-[150px] md:mr-[150px] flex flex-col md:justify-center md:align-middle"
       data-aos="fade-up"
     >
       <h2 className="md:text-3xl text-xl font-bold text-center ">

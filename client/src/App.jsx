@@ -14,6 +14,7 @@ import "aos/dist/aos.css";
 import MostVisited from "./pages/MostVisited.jsx";
 import MostPopular from "./pages/MostPopular.jsx";
 import MostTrendy from "./pages/MostTrendy.jsx";
+import PopularLocations from "./pages/PopularLocation.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -42,6 +43,7 @@ const App = () => {
           path="/Most Trendy"
           element={<MostTrendy title="Most Trendy" />}
         />
+        <Route path="/id/info/popular" element={<PopularLocations />} />
       </Routes>
       {/* </div> */}
     </>
