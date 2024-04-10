@@ -32,7 +32,7 @@ const App = () => {
         <Route path="/booking" element={<MyBookings />} />
         <Route path="/cancellation" element={<Cancellation />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/id/info" element={<DestInfromation />} />
+        <Route path="/locationinfo/:id" element={<DestInfromation />} />
         <Route
           path="/Most Visited"
           element={<MostVisited title="Most Visisted" />}
@@ -46,7 +46,7 @@ const App = () => {
           element={<MostTrendy title="Most Trendy" />}
         />
         <Route path="/reset-password/:resetToken" element={<ResetPassword />} />
-        <Route path="/id/info/popular" element={<PopularLocations />} />
+        <Route path="/popularLocation/:id" element={<PopularLocations />} />
       </Routes>
       {/* </div> */}
     </>

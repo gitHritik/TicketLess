@@ -6,6 +6,7 @@ import authRoutes from "./routes/authRoutes.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes.js";
+import imageRoutes from "./routes/imageRoutes.js";
 
 const app = express();
 
@@ -31,7 +32,8 @@ passportUtil(app);
 app.use(express.json());
 app.use("/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/images", imageRoutes);
 
 app.listen(5000, () => {
-  console.log("Running great!!!");
+  console.log("Running great!!! on http://localhost:5000");
 });

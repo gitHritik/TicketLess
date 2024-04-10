@@ -9,6 +9,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Comment from "../components/Comment";
 import { FaHeart } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
+import { BACKEND_URL } from "../constant";
 
 const DestInfromation = () => {
   useEffect(() => {
@@ -21,6 +25,22 @@ const DestInfromation = () => {
 
   const [showComment, setShowCommment] = useState(false);
   const [showHeart, setShowHeart] = useState(true);
+  const [data, setData] = useState("");
+  const location = useLocation();
+  const path = location.pathname.split("/")[2];
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await axios.get(
+        `${BACKEND_URL}/api/images/singleImage/` + path
+      );
+      setData(res.data);
+    };
+    getData();
+  }, [path]);
+
+  console.log(data);
+
   // const [color,setColor] = useState(white)
   const handleCloseComment = () => {
     setShowCommment(false);
@@ -35,51 +55,26 @@ const DestInfromation = () => {
       <article className="" data-aos="fade-up">
         <div className="mb-4 md:mb-0 w-full mx-auto relative">
           <img
-            src="https://cdn.pixabay.com/photo/2017/04/05/01/10/natural-history-museum-2203648_1280.jpg"
+            src={data.locationImage}
             className="w-full object-cover lg:rounded brightness-50"
             style={{ height: "28em" }}
             alt="Blog Cover"
           />
           <div className="px-4 lg:px-0 text-center">
             <h2 className="text-4xl font-semibold text-gray-800 leading-tight">
-              Location Name
+              {data.location}
             </h2>
             <a
               href="#"
               className="py-2  text-green-700 inline-flex items-center justify-center align-middle"
             >
-              Museum
+              {data.museumName}
             </a>
           </div>
         </div>
         <div className="flex flex-col lg:flex-row lg:space-x-12 justify-center">
           <div className="px-4 mt-3 lg:px-0  text-gray-700 text-lg leading-relaxed w-full lg:w-3/4">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-              blanditiis tempora perferendis optio eveniet a fuga cum ipsam,
-              aperiam vitae quasi nisi corporis adipisci molestiae facere qui,
-              culpa distinctio quisquam voluptatum illum veniam, voluptate fugit
-              unde voluptas? Fugiat quidem maxime neque fugit ea! Rem soluta
-              optio eos vel? Perferendis maxime, iure molestias totam, autem
-              voluptatum nulla ad provident quam labore sint earum rem unde quis
-              aspernatur possimus pariatur assumenda magnam eligendi quos,
-              consectetur facere consequatur tempora aut. Architecto beatae unde
-              repellat accusantium velit optio earum pariatur porro. Impedit
-              molestiae officia ex nemo officiis aut, facilis, nesciunt
-              recusandae repudiandae repellendus corrupti sequi mollitia. Eaque
-              corporis nisi repudiandae voluptas eius soluta repellat
-              consequatur praesentium vero, ad nulla, aliquid vel illum sint
-              facere quibusdam necessitatibus laudantium voluptate architecto
-              fuga omnis. Doloremque vero adipisci maiores, consequuntur,
-              eveniet dignissimos reiciendis ad totam nemo iste tempora aliquam
-              itaque quo beatae numquam doloribus recusandae iusto modi
-              perferendis ipsum a fugiat quam harum dicta. Et atque pariatur,
-              error quam fuga earum adipisci. Sequi quo voluptatem amet ullam
-              optio? Quam, dignissimos quidem? Culpa necessitatibus, hic a
-              cumque, molestias dicta nisi autem consequatur beatae tenetur
-              laudantium eveniet quas consequuntur, repudiandae incidunt atque
-              amet assumenda aut. Quae magnam tempore optio temporibus!
-            </p>
+            <p>{data.description}</p>
           </div>
         </div>
         <div className="w-full text-center mt-7">
@@ -94,7 +89,7 @@ const DestInfromation = () => {
               className="text-gray-600 cursor-pointer"
               onClick={(e) => setShowCommment(!showComment)}
             />
-            <span className="text-gray-600">15 comments</span>
+            <span className="text-gray-600">{data.comment} comments</span>
           </div>
           <div
             className="flex items-center space-x-2 cursor-pointer"
@@ -106,7 +101,7 @@ const DestInfromation = () => {
               <FaHeart className="text-red-500 " />
             )}
 
-            <span className="text-gray-600">120 likes</span>
+            <span className="text-gray-600">{data.likes} likes</span>
           </div>
           <div className="flex items-center space-x-2 ">
             <a
@@ -119,9 +114,13 @@ const DestInfromation = () => {
           </div>
         </div>
       </article>
-      <Comment onClose={handleCloseComment} visible={showComment} />
+      <Comment
+        onClose={handleCloseComment}
+        comment={data.comment}
+        visible={showComment}
+      />
 
-      <PopularPlaces tags="Museum" />
+      <PopularPlaces popular={data.popularPlaces} tags="Museum" />
       <Footer />
     </div>
   );

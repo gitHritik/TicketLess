@@ -6,11 +6,12 @@ import RelatedPlaces from "./RelatedPlaces.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const PopularPlaces = ({ tags }) => {
+const PopularPlaces = ({ popular }) => {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
+
   return (
     <section
       className="text-gray-600 mt-12 z-50 md:ml-[150px] md:mr-[150px] flex flex-col md:justify-center md:align-middle"
@@ -21,7 +22,7 @@ const PopularPlaces = ({ tags }) => {
       </h2>
       <div className="container px-5 py-8 mx-auto">
         <div className="flex flex-wrap -m-4">
-          <RelatedPlaces />
+          <RelatedPlaces popular={popular} />
         </div>
       </div>
     </section>

@@ -8,6 +8,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Comment from "../components/Comment";
 import { FaHeart } from "react-icons/fa";
+import { BACKEND_URL } from "../constant";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 const PopularLocations = () => {
   useEffect(() => {
@@ -19,6 +22,22 @@ const PopularLocations = () => {
   }, []);
   const [showComment, setShowCommment] = useState(false);
   const [showHeart, setShowHeart] = useState(true);
+
+  const [data, setData] = useState("");
+  const [wholeData, setWholeData] = useState("");
+  const location = useLocation();
+  const path = location.pathname.split("/")[2];
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await axios.get(`${BACKEND_URL}/api/images/popular/` + path);
+      setData(res.data.popularPlaces);
+      setWholeData(res.data);
+    };
+    getData();
+  }, [path]);
+
+  console.log(data);
 
   const handleCloseComment = () => {
     setShowCommment(false);
@@ -39,44 +58,19 @@ const PopularLocations = () => {
           />
           <div className="px-4 lg:px-0 text-center">
             <h2 className="text-4xl font-semibold text-gray-800 leading-tight">
-              Location Name
+              {wholeData.location}
             </h2>
             <a
               href="#"
               className="py-2  text-green-700 inline-flex items-center justify-center align-middle"
             >
-              Museum
+              {data.Mname}
             </a>
           </div>
         </div>
         <div className="flex flex-col lg:flex-row lg:space-x-12 justify-center">
           <div className="px-4 mt-3 lg:px-0  text-gray-700 text-lg leading-relaxed w-full lg:w-3/4">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-              blanditiis tempora perferendis optio eveniet a fuga cum ipsam,
-              aperiam vitae quasi nisi corporis adipisci molestiae facere qui,
-              culpa distinctio quisquam voluptatum illum veniam, voluptate fugit
-              unde voluptas? Fugiat quidem maxime neque fugit ea! Rem soluta
-              optio eos vel? Perferendis maxime, iure molestias totam, autem
-              voluptatum nulla ad provident quam labore sint earum rem unde quis
-              aspernatur possimus pariatur assumenda magnam eligendi quos,
-              consectetur facere consequatur tempora aut. Architecto beatae unde
-              repellat accusantium velit optio earum pariatur porro. Impedit
-              molestiae officia ex nemo officiis aut, facilis, nesciunt
-              recusandae repudiandae repellendus corrupti sequi mollitia. Eaque
-              corporis nisi repudiandae voluptas eius soluta repellat
-              consequatur praesentium vero, ad nulla, aliquid vel illum sint
-              facere quibusdam necessitatibus laudantium voluptate architecto
-              fuga omnis. Doloremque vero adipisci maiores, consequuntur,
-              eveniet dignissimos reiciendis ad totam nemo iste tempora aliquam
-              itaque quo beatae numquam doloribus recusandae iusto modi
-              perferendis ipsum a fugiat quam harum dicta. Et atque pariatur,
-              error quam fuga earum adipisci. Sequi quo voluptatem amet ullam
-              optio? Quam, dignissimos quidem? Culpa necessitatibus, hic a
-              cumque, molestias dicta nisi autem consequatur beatae tenetur
-              laudantium eveniet quas consequuntur, repudiandae incidunt atque
-              amet assumenda aut. Quae magnam tempore optio temporibus!
-            </p>
+            <p>{data.Mdescription}</p>
           </div>
         </div>
         <div className="w-full text-center mt-7">
@@ -91,7 +85,7 @@ const PopularLocations = () => {
               className="text-gray-600 cursor-pointer"
               onClick={(e) => setShowCommment(!showComment)}
             />
-            <span className="text-gray-600">15 comments</span>
+            <span className="text-gray-600">{data.Mcomments} comments</span>
           </div>
           <div
             className="flex items-center space-x-2 cursor-pointer"
@@ -102,7 +96,7 @@ const PopularLocations = () => {
             ) : (
               <FaHeart className="text-red-500 " />
             )}
-            <span className="text-gray-600">120 likes</span>
+            <span className="text-gray-600">{data.Mlikes} likes</span>
           </div>
           <div className="flex items-center space-x-2 ">
             <a
@@ -115,7 +109,11 @@ const PopularLocations = () => {
           </div>
         </div>
       </article>
-      <Comment onClose={handleCloseComment} visible={showComment} />
+      <Comment
+        comment={data.Mcomments}
+        onClose={handleCloseComment}
+        visible={showComment}
+      />
       <Footer />
     </div>
   );
