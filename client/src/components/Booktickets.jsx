@@ -1,22 +1,28 @@
-import React from 'react'
-
+import React from "react";
+import Modal from "./Modal";
+import Payment from "./Payment";
+import Costomer_image from "./Costomer_image";
+import  Footer  from "../components/Footer";
 const Booktickets = () => {
   return (
     <>
-      <div className="image flex">
-        <div className="image1 w-[100%] ">
-          <img src="https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg" className=" h-[250px] w-full" />
-        </div>
-        <div className="image1 w-[100%]">
-          <img src="https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg" className=" h-[250px] w-full" />
-        </div>
-        <div className="image1 w-[100%]">
-          <img src="https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg" className=" h-[250px] w-full" />
-        </div>
-       
+    
+      <div className="">
+        <Modal />
+      </div>
+
+      <div className="">
+        <Payment />
+      </div>
+
+      <div className=" w-[80%] m-auto mb-10">
+        <Costomer_image/>
+      </div>
+      <div className="suggestion">
+       <Footer/>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Booktickets
+export default Booktickets;

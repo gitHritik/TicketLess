@@ -216,20 +216,46 @@ export const AboutTeamdata = [
 export const RelatedData = [
   {
     title: "Agra",
-    para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eius perspiciatis itaque, a debitis ipsa qui, animi, iusto sapientetemporibus officiis architecto quisquam!",
+    para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eius",
     img: "https://cdn.pixabay.com/photo/2017/04/05/01/10/natural-history-museum-2203648_1280.jpg",
     category: "Museum",
   },
   {
     title: "Mumbai",
-    para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eius perspiciatis itaque, a debitis ipsa qui, animi, iusto sapientetemporibus officiis architecto quisquam!",
+    para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eius",
     img: "https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg",
     category: "Museum",
   },
   {
     title: "New Delhi",
-    para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eius perspiciatis itaque, a debitis ipsa qui, animi, iusto sapientetemporibus officiis architecto quisquam!",
+    para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eius",
     img: "https://cdn.pixabay.com/photo/2017/08/06/09/29/man-2590655_960_720.jpg",
     category: "Museum",
+  },
+];
+export const Mightlikedata = [
+  {
+    title: "Park Battle",
+    location:"MUMBAI",
+    para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eius",
+    img: "https://source.unsplash.com/random/300x300/?4",
+    rating:"4.4",
+    price:"300"
+  },
+  {
+    title: "Park Battle",
+    location:"MUMBAI",
+    para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eius",
+    img: "https://source.unsplash.com/random/300x300/?2",
+    rating:"4.4",
+    price:"300"
+  },
+  {
+    title: "Park Battle",
+    location:"MUMBAI",
+    para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eius",
+    img: "https://source.unsplash.com/random/300x300/?1",
+    rating:"4.4",
+    price:"300"
   },
 ];

@@ -6,10 +6,15 @@ import { unleashData } from "../pages/data";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Unlease() {
   // console.log(innnerWidth);
-
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   const settings = {
     dots: 4,
     infinite: true,
@@ -28,7 +33,7 @@ function Unlease() {
     ],
   };
   return (
-    <div className="bg-gray-100 flex">
+    <div className="bg-gray-100 flex" data-aos="fade-up">
       <div className="md:w-3/4 m-auto flex flex-col justify-center align-middle ">
         <div className="md:text-[40px] text-[14px] text-center text-[#88563b]  ">
           <h1 className="font-[900] md:mx-10 md:my-3 py-4">

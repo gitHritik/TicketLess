@@ -5,8 +5,15 @@ import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import Login from "../pages/Login.jsx";
 import Register from "../pages/Register.jsx";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import TypeWriter from "./TypeWriter.jsx";
 
 const Navbar = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   const [Mobile, setMobile] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   // ${isScrolled ? 'bg-gray-800 text-white' : 'bg-transparent text-black'}
@@ -53,6 +60,7 @@ const Navbar = () => {
             : "bg-transparent text-white"
           // isScrolled ? "bg-gray-800 text-white" : "bg-transparent text-black"
         }`}
+        data-aos="fade-up"
       >
         {/* <nav className=" bg-transparent p-4 max-md:p-7 fixed w-full top-0 z-10 transition duration-300 ease-in-out"> */}
         <div className="container mx-auto flex justify-between items-center ">
@@ -60,7 +68,7 @@ const Navbar = () => {
             to="/"
             className=" text-white text-[2rem] font-bold max-md:hidden"
           >
-            Ticketless
+            <TypeWriter text="TicketLess" delay={100} />
           </Link>
           <ul
             className={
@@ -81,12 +89,6 @@ const Navbar = () => {
               Booking
             </Link>
 
-            <Link
-              to="/cancellation"
-              className="text-white mr-4  max-md:border-b border-gray-700 my-1 "
-            >
-              Cancellation
-            </Link>
             <Link
               to="/about"
               className="text-white mr-4 max-md:border-b border-gray-700 my-1 "

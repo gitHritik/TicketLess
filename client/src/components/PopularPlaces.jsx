@@ -3,11 +3,20 @@
 import React, { useEffect } from "react";
 
 import RelatedPlaces from "./RelatedPlaces.jsx";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const PopularPlaces = ({ tags }) => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
-    <section className="text-gray-600 mt-12 ml-[150px] mr-[150px] flex flex-col justify-center align-middle">
-      <h2 className="text-3xl font-bold ml-[21px]">
+    <section
+      className="text-gray-600 mt-12 md:ml-[150px] md:mr-[150px] flex flex-col md:justify-center md:align-middle"
+      data-aos="fade-up"
+    >
+      <h2 className="md:text-3xl text-xl font-bold text-center ">
         Popular Museum in Location Name
       </h2>
       <div className="container px-5 py-8 mx-auto">

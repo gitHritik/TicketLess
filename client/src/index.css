@@ -20,7 +20,9 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
-
+.css-13xfq8m-MuiTabPanel-root {
+  padding: 0px !important ;
+}
 /* For IE, Edge and Firefox */
 .scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */

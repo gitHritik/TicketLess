@@ -1,13 +1,19 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RelatedData } from "../pages/data.js";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const RelatedPlaces = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <>
       {RelatedData.map((item) => (
-        <div className="p-4 md:w-1/3" key={item}>
+        <div className="p-4 md:w-1/3" key={item} data-aos="fade-up">
           <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
             <img
               className="lg:h-48 md:h-36 w-full object-cover object-center"

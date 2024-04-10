@@ -23,8 +23,9 @@ const About = () => {
       </div>
       <div className="about_details text-center my-24">
         <p className="max-[1210px]:w-[40%] max-[1210px]:w-[60%] max-[650px]:w-[90%] max-[440px]:text-[12px] w-[32%] m-auto text-black text-[18px]">
-          Tiqets is an online booking platform for museums and attractions that
-          connects travelers worldwide with more ways to experience culture.
+          TicketLess is an online booking platform for museums and attractions
+          that connects travelers worldwide with more ways to experience
+          culture.
         </p>
       </div>
       <div className=" w-[70%] flex m-auto my-75 max-[800px]:flex-col-reverse">
