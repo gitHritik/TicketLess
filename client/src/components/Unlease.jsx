@@ -8,9 +8,11 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { BACKEND_URL } from "../constant";
 
 function Unlease() {
   // console.log(innnerWidth);
+  const [data, setData] = useState([]);
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -32,6 +34,27 @@ function Unlease() {
       },
     ],
   };
+
+  const fetchImagesByCategory = async (category) => {
+    try {
+      const response = await fetch(
+        `${BACKEND_URL}/api/images/unlease/${category}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch images");
+      }
+      const imageData = await response.json();
+      setData(imageData);
+    } catch (error) {
+      console.error("Error fetching images:", error.message);
+    }
+  };
+  const shuffledImages = [...data].sort(() => Math.random() - 0.5);
+
+  useEffect(() => {
+    fetchImagesByCategory("Museum");
+  }, []);
   return (
     <div className="bg-gray-100 flex" data-aos="fade-up">
       <div className="md:w-3/4 m-auto flex flex-col justify-center align-middle ">
@@ -42,15 +65,15 @@ function Unlease() {
         </div>
         <div className=" md:w-full mb-2 ml-[32px] md:ml-0 ">
           <Slider {...settings} className="w-[248px] md:w-full">
-            {unleashData.map((d) => (
+            {shuffledImages.map((d, id) => (
               <div
-                key={d.item}
+                key={id}
                 className="mb-5 md:block md:w-[22px] cursor-pointer  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] flex-none w-0 md:pb-4 border rounded-lg"
               >
-                <Link to="/id/info">
+                <Link to={"/unleaseinfo/" + d?._id}>
                   <div className="relative overflow-hidden bg-cover bg-no-repeat">
                     <img
-                      src={d.img}
+                      src={d.locationImage[0]}
                       alt=""
                       className="rounded-t-lg md:w-[347px] md:h-[270px] w-[228px] h-[149px]"
                     />
@@ -62,10 +85,12 @@ function Unlease() {
                         {d.location}
                       </h5>
                       <h5 className="mb-1 md:text-xl ext-[16px] leading-[1.25] font-medium  md:leading-tight text-neutral-800">
-                        {d.title}
+                        {d.museumName}
                       </h5>
                       <p className="mb-2 md:text-base text-[13px]  leading-[1.25]  text-neutral-600">
-                        {d.description}
+                        {d.description.length > 150
+                          ? `${d.description.substring(0, 150)}...`
+                          : d.description}
                       </p>
                     </div>
                     <div className="ratingandprice flex justify-between md:w-[90%] m-auto mb-2 md:px-0 px-2">
@@ -75,7 +100,7 @@ function Unlease() {
                           {d.rating}
                         </p>
                         <p className="text-gray-400 md:text-xs leading-[17px] text-[8px] font-medium">
-                          (23,456)
+                          {d.views}
                         </p>
                       </div>
                       <button className="price text-center text-gray-800  md:text-[1rem] text-[11px] leading-[1px]">

@@ -6,7 +6,7 @@ import RelatedPlaces from "./RelatedPlaces.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const PopularPlaces = ({ popular }) => {
+const PopularPlaces = ({ location, popular, category }) => {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -18,11 +18,11 @@ const PopularPlaces = ({ popular }) => {
       data-aos="fade-up"
     >
       <h2 className="md:text-3xl text-xl font-bold text-center ">
-        Popular Museum in Location Name
+        Popular {category} in {location}
       </h2>
       <div className="container px-5 py-8 mx-auto">
         <div className="flex flex-wrap -m-4">
-          <RelatedPlaces popular={popular} />
+          <RelatedPlaces popular={popular} category={category} />
         </div>
       </div>
     </section>

@@ -6,7 +6,7 @@ import { RelatedData } from "../pages/data.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const RelatedPlaces = ({ popular }) => {
+const RelatedPlaces = ({ popular, category }) => {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -19,19 +19,24 @@ const RelatedPlaces = ({ popular }) => {
         <div className="p-4 md:w-1/3" key={id} data-aos="fade-up">
           <Link to={"/popularLocation/" + item?._id}>
             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-              <img
-                className="lg:h-48 md:h-36 w-full object-cover object-center"
-                src="https://images.unsplash.com/photo-1566024287286-457247b70310?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG9jZWFufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=800&q=60"
-                alt=""
-              />
+              {item.Mimage && (
+                <img
+                  className="lg:h-48 md:h-36 w-full object-cover object-center"
+                  src={item.Mimage[0]}
+                />
+              )}
               <div className="p-6">
                 <p className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                  {item.category}
+                  {category}
                 </p>
                 <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                   {item.Mname}
                 </h1>
-                <p className="leading-relaxed mb-3">{item.Mdescription}</p>
+                <p className="leading-relaxed mb-3">
+                  {item.Mdescription.length > 200
+                    ? `${item.Mdescription.substring(0, 200)}...`
+                    : item.Mdescription}
+                </p>
                 <div className="flex items-center flex-wrap ">
                   <Link
                     to=""

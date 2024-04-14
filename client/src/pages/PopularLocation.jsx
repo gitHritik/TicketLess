@@ -37,6 +37,17 @@ const PopularLocations = () => {
     getData();
   }, [path]);
 
+  useEffect(() => {
+    const getData = async () => {
+      const res = await axios.get(
+        `${BACKEND_URL}/api/images/popularUnlease/` + path
+      );
+      setData(res.data.popularPlaces);
+      setWholeData(res.data);
+    };
+    getData();
+  }, [path]);
+
   console.log(data);
 
   const handleCloseComment = () => {
@@ -50,12 +61,14 @@ const PopularLocations = () => {
       <Navbar />
       <article className="mb-4" data-aos="fade-up">
         <div className="mb-4 md:mb-0 w-full mx-auto relative">
-          <img
-            src="https://cdn.pixabay.com/photo/2017/04/05/01/10/natural-history-museum-2203648_1280.jpg"
-            className="w-full object-cover lg:rounded brightness-50"
-            style={{ height: "28em" }}
-            alt="Blog Cover"
-          />
+          {data.Mimage && (
+            <img
+              src={data.Mimage[0]}
+              className="w-full object-cover lg:rounded brightness-50"
+              style={{ height: "28em" }}
+              alt="Blog Cover"
+            />
+          )}
           <div className="px-4 lg:px-0 text-center">
             <h2 className="text-4xl font-semibold text-gray-800 leading-tight">
               {wholeData.location}

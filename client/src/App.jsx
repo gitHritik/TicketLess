@@ -17,6 +17,7 @@ import MostTrendy from "./pages/MostTrendy.jsx";
 import PopularLocations from "./pages/PopularLocation.jsx";
 import Register from "./pages/Register.jsx";
 import ResetPassword from "./pages/ResetPassword.jsx";
+import UnleaseInformation from "./pages/UnleaseInformation.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/cancellation" element={<Cancellation />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/locationinfo/:id" element={<DestInfromation />} />
+        <Route path="/unleaseinfo/:id" element={<UnleaseInformation />} />
         <Route
           path="/Most Visited"
           element={<MostVisited title="Most Visisted" />}

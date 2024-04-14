@@ -14,7 +14,7 @@ const Comment = ({ visible, onClose, comment }) => {
   };
   return (
     <>
-      <section className="bg-white mb-6 dark:bg-gray-900 py-8 lg:py-16 md:ml-[150px] md:mr-[150px]  antialiased mt-8">
+    <section className="bg-white mb-6 dark:bg-gray-900 py-8 lg:py-16 md:ml-[150px] md:mr-[150px]  antialiased mt-8">
         <div
           className="flex justify-end cursor-pointer align-top mr-6 relative bottom-[5px] md:bottom-[40px]"
           onClick={handleOnClose}
@@ -41,6 +41,9 @@ const Comment = ({ visible, onClose, comment }) => {
               ></textarea>
             </div>
           </form>
+          <button className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            Post
+          </button>
           {/* <article className="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
             <footer className="flex justify-between items-center mb-2">
               <button

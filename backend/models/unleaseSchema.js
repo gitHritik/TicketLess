@@ -1,6 +1,6 @@
 import { mongoose } from "mongoose";
 
-const imgageSchema = mongoose.Schema(
+const unleaseSchema = mongoose.Schema(
   {
     location: {
       type: String,
@@ -28,6 +28,16 @@ const imgageSchema = mongoose.Schema(
     },
     comment: {
       type: Number,
+    },
+    rating: {
+      type: Number,
+    },
+    views: {
+      type: Number,
+    },
+    popularity: {
+      type: String,
+      required: true,
     },
     popularPlaces: [
       {
@@ -61,6 +71,6 @@ const imgageSchema = mongoose.Schema(
   }
 );
 
-const imageModel = mongoose.model("scroller", imgageSchema);
+const unleaseModel = mongoose.model("unlease", unleaseSchema);
 
-export default imageModel;
+export default unleaseModel;
