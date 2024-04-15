@@ -1,6 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Link,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import Login from "../pages/Login.jsx";
@@ -8,6 +14,10 @@ import Register from "../pages/Register.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import TypeWriter from "./TypeWriter.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { useLogoutMutation } from "../slices/userApiSlices.js";
+import { logout } from "../slices/userSlice";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   useEffect(() => {
@@ -30,6 +40,8 @@ const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
   const [currentForm, setCurrentForm] = useState("login");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleCloseLogin = () => {
     setShowLogin(false);
     setCurrentForm("login");
@@ -48,6 +60,21 @@ const Navbar = () => {
     if (formName == "register") {
       setShowLogin(false);
       setShowRegister(true);
+    }
+  };
+  const [logoutApi] = useLogoutMutation();
+
+  const { userInfo } = useSelector((state) => state.user);
+
+  const handleLogout = async () => {
+    try {
+      await logoutApi().unwrap();
+      dispatch(logout());
+      navigate("/");
+
+      toast.success("logged Out Successfully");
+    } catch (error) {
+      toast.error(error?.data?.message || error?.error);
     }
   };
 
@@ -81,13 +108,14 @@ const Navbar = () => {
             >
               Home
             </Link>
-
-            <Link
-              to="/booking"
-              className="text-white mr-4 max-md:border-b border-gray-700 my-1 "
-            >
-              Booking
-            </Link>
+            {userInfo ? (
+              <Link
+                to="/booking"
+                className="text-white mr-4 max-md:border-b border-gray-700 my-1 "
+              >
+                Booking
+              </Link>
+            ) : null}
 
             <Link
               to="/about"
@@ -102,12 +130,21 @@ const Navbar = () => {
             >
               Contact us
             </Link>
-            <Link
-              className="text-white mr-4 "
-              onClick={() => setShowLogin(true)}
-            >
-              Login
-            </Link>
+            {userInfo ? (
+              <span>Hi, {userInfo.given_name || userInfo.name}</span>
+            ) : (
+              <Link
+                className="text-white mr-4 "
+                onClick={() => setShowLogin(true)}
+              >
+                Login
+              </Link>
+            )}
+            {userInfo ? (
+              <Link onClick={handleLogout} className="text-white ml-4 mr-4 ">
+                Logout
+              </Link>
+            ) : null}
           </ul>
           {/* <hr className="max-md:hidden  absolute top-20 border-gray-700 w-[90%] items-center" /> */}
           <button

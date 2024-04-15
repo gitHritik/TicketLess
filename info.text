@@ -1,0 +1,38 @@
+Creation End Point = Post -> http://localhost:5000/api/images/scroller
+Format -> 
+{
+  "location": "Hyderabad",
+  "subLocation": "Public Gardens",
+  "museumName": "Salar Jung Museum",
+  "locationImage": "https://images.unsplash.com/photo-1566024287286-457247b70310?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG9jZWFufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+  "category": "Museum",
+  "description": "Salar Jung Museum, situated in Hyderabad's Public Gardens, is one of the largest museums in India. It boasts an extensive collection of artifacts, including paintings, sculptures, manuscripts, ceramics, and textiles, from various civilizations.",
+  "likes": 18,
+  "comment": 15,
+  "popularPlaces":[
+
+    { "Mname": "Popular Museum 1", 
+      "Mdescription": "Description of Popular Museum 1",
+      "Mlikes": 100,
+      "Mcomments": 50,
+      "Mimage":"image string",
+      "Msublocation":"Public Gardens"
+    },
+    {
+      "Mname": "Popular Museum 2",
+      "Mdescription": "Description of Popular Museum 2",
+      "Mlikes": 200,
+      "Mcomments": 80,
+      "Mimage":"image string",
+      "Msublocation":"Public Gardens"
+    },
+     {
+      "Mname": "Popular Museum 2",
+      "Mdescription": "Description of Popular Museum 2",
+      "Mlikes": 200,
+      "Mcomments": 80,
+      "Mimage":"image string",
+      "Msublocation":"Public Gardens"
+    }
+  ]
+}

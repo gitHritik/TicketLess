@@ -5,6 +5,9 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { BACKEND_URL } from "../constant.js";
 
 const Scroller = () => {
   useEffect(() => {
@@ -12,6 +15,7 @@ const Scroller = () => {
     AOS.refresh();
   }, []);
   const [mobile, SetIsmobile] = useState(true);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     if (window.innerWidth > "768") {
@@ -24,7 +28,7 @@ const Scroller = () => {
     if (mobile) {
       slider.scrollLeft = slider.scrollLeft - 260;
     } else {
-      slider.scrollLeft = slider.scrollLeft - 1115;
+      slider.scrollLeft = slider.scrollLeft - 800;
     }
   }
 
@@ -33,9 +37,21 @@ const Scroller = () => {
     if (mobile) {
       slider.scrollLeft = slider.scrollLeft + 260;
     } else {
-      slider.scrollLeft = slider.scrollLeft + 1115;
+      slider.scrollLeft = slider.scrollLeft + 800;
     }
   };
+
+  const handleImage = async () => {
+    const data = await axios.get(`${BACKEND_URL}/api/images/scroller`);
+    setImages(data.data);
+  };
+
+  const shuffledImages = [...images].sort(() => Math.random() - 0.5);
+
+  useEffect(() => {
+    handleImage();
+  }, []);
+
   return (
     <>
       <div className="" data-aos="fade-up">
@@ -54,13 +70,14 @@ const Scroller = () => {
             id="slider"
             className="w-full md:mx-16 h-full justify-center align-middle overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide no-scrollbar overflow-y-auto"
           >
-            {data.map((item) => (
-              <img
-                className="md:h-[550px] md:w-[420px] w-[220px] h-[220px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
-                src={item.img}
-                alt="/"
-                key={item}
-              />
+            {shuffledImages.map((item, id) => (
+              <Link to={"/locationinfo/" + item?._id} key={id}>
+                <img
+                  className="md:h-[550px] md:w-[420px] w-[220px] h-[220px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
+                  src={item.locationImage[0]}
+                  alt="/"
+                />
+              </Link>
             ))}
           </div>
           <MdChevronRight
