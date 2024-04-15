@@ -7,6 +7,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes.js";
 import imageRoutes from "./routes/imageRoutes.js";
+import unleaseRoutes from "./routes/unleaseRoutes.js";
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use(express.json());
 app.use("/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/images", imageRoutes);
+app.use("/api/images", unleaseRoutes);
 
 app.listen(5000, () => {
   console.log("Running great!!! on http://localhost:5000");

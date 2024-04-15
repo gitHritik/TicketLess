@@ -6,7 +6,7 @@ import { RelatedData } from "../pages/data.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const RelatedPlaces = ({ popular }) => {
+const RelatedPlaces = ({ popular, category }) => {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -26,12 +26,16 @@ const RelatedPlaces = ({ popular }) => {
               />
               <div className="p-6">
                 <p className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                  {item.category}
+                  {category}
                 </p>
                 <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                   {item.Mname}
                 </h1>
-                <p className="leading-relaxed mb-3">{item.Mdescription}</p>
+                <p className="leading-relaxed mb-3">
+                  {item.Mdescription.length > 200
+                    ? `${item.Mdescription.substring(0, 200)}...`
+                    : item.Mdescription}
+                </p>
                 <div className="flex items-center flex-wrap ">
                   <Link
                     to=""

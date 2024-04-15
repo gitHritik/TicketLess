@@ -37,6 +37,17 @@ const PopularLocations = () => {
     getData();
   }, [path]);
 
+  useEffect(() => {
+    const getData = async () => {
+      const res = await axios.get(
+        `${BACKEND_URL}/api/images/popularUnlease/` + path
+      );
+      setData(res.data.popularPlaces);
+      setWholeData(res.data);
+    };
+    getData();
+  }, [path]);
+
   console.log(data);
 
   const handleCloseComment = () => {
