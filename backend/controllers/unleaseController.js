@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import unleaseModel from "../models/unleaseSchema";
+import unleaseModel from "../models/unleaseSchema.js";
 
 export const createImages = async (req, res, next) => {
   const newUnlease = new unleaseModel(req.body);

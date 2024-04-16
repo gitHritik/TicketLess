@@ -1,35 +1,20 @@
-import React from "react";
-import {Link} from 'react-router-dom'
+/* eslint-disable no-unused-vars */
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 const Modal = () => {
-  
-  // Get all the img elements in the grid
-  var images = document.querySelectorAll('.grid img');
- 
-  // Loop through each img element
-  images.forEach(function (img) {
-       
-    // Add Link click event listener to each img element
-      img.addEventListener('click', function () {
-          showModal(img.src);
-      });
-  });
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalImageSrc, setModalImageSrc] = useState("");
 
-  // Get the modal by id
-  var modal = document.getElementById("modal");
+  const openModal = (src) => {
+    setModalImageSrc(src);
+    setModalOpen(true);
+  };
 
-  // Get the modal image tag
-  var modalImg = document.getElementById("modal-img");
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
-  // This function is called when Link small image is clicked
-  function showModal(src) {
-      modal.classList.remove('hidden');
-      modalImg.src = src;
-  }
-
-  // This function is called when the close button is clicked
-  function closeModal() {
-      modal.classList.add('hidden');
-  }
   return (
     <>
       <div className="p-10 grid grid-cols-3 gap-5 max-[700px]:grid-cols-1 ">
@@ -37,41 +22,58 @@ const Modal = () => {
           className="w-full h-full object-cover cursor-pointer"
           src="https://media.geeksforgeeks.org/wp-content/uploads/20240215121528/javare15.png"
           alt="Img 1"
-          id="img1"
+          onClick={() =>
+            openModal(
+              "https://media.geeksforgeeks.org/wp-content/uploads/20240215121528/javare15.png"
+            )
+          }
         />
 
         <img
           className="w-full h-full object-cover cursor-pointer"
           src="https://media.geeksforgeeks.org/wp-content/uploads/20240215121204/15re.webp"
           alt="Img 2"
-          id="img2"
+          onClick={() =>
+            openModal(
+              "https://media.geeksforgeeks.org/wp-content/uploads/20240215121204/15re.webp"
+            )
+          }
         />
 
         <img
           className="w-full h-full object-cover cursor-pointer"
           src="https://media.geeksforgeeks.org/wp-content/uploads/20240215121356/jsre15.jpg"
           alt="Img 3"
-          id="img3"
+          onClick={() =>
+            openModal(
+              "https://media.geeksforgeeks.org/wp-content/uploads/20240215121356/jsre15.jpg"
+            )
+          }
         />
       </div>
 
-      <div
-        id="modal"
-        className="hidden fixed top-0 left-0 z-80 
-                w-screen h-screen bg-black/70 flex 
-                justify-center items-center"
-      >
-        <Link
-          className="fixed z-90 top-6 right-8 
-                  text-white text-5xl font-bold"
-          href="javascript:void(0)"
-          onClick={closeModal}
+      {modalOpen && (
+        <div
+          id="modal"
+          className="fixed top-0 left-0 z-80 
+                w-screen h-screen bg-black/70 
+                flex justify-center items-center z-40"
         >
-          ×
-        </Link>
+          <span
+            className="fixed z-90 top-6 right-8 
+                  text-white text-5xl font-bold cursor-pointer"
+            onClick={closeModal}
+          >
+            ×
+          </span>
 
-        <img id="modal-img" className="max-w-[800px] max-h-[600px] object-cover" />
-      </div>
+          <img
+            src={modalImageSrc}
+            className="max-w-[800px] max-h-[600px] object-cover"
+            alt="Modal"
+          />
+        </div>
+      )}
     </>
   );
 };

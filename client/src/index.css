@@ -51,3 +51,21 @@
 .slick-next {
   right: -30px;
 } */
+
+.custom-dropdown { 
+  .p-dropdown-items {
+    justify-content: center !important;
+    position: absolute !important;
+    z-index: 22 !important;
+    flex-direction: column !important;
+    display: flex !important;
+    height: 120px !important;
+    width: 100% !important;
+    align-items: center !important;
+    background: white !important;
+    padding-right: 11px;
+  }
+  
+  
+}
+  

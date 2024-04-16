@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -18,10 +19,12 @@ import {
   AccordionPanel,
   AccordionTitle,
 } from "flowbite-react";
+import TicketSelectionPopup from "./TicketSelectionPopup";
 
 const Payment = () => {
   const [startDate, setStartDate] = useState(new Date());
-  const [selectedtime, setSelectedtime] = useState(null);
+  const today = new Date();
+  const [selectedTime, setSelectedTime] = useState(null);
   const times = [
     { name: "09:00-10:00", code: "NY" },
     { name: "10:00-11:00", code: "RM" },
@@ -29,14 +32,17 @@ const Payment = () => {
     { name: "11:00-12:00", code: "IST" },
     { name: "12:00-01:00", code: "PRS" },
   ];
-  const [selectedtickets, setSelectedtickets] = useState(null);
-  const tickets = [
-    { name: "tickets no-56098", code: "NY" },
-    { name: "tickets no-56098", code: "RM" },
-    { name: "tickets no-56098", code: "LDN" },
-    { name: "tickets no-56098", code: "IST" },
-    { name: "tickets no-56098", code: "PRS" },
-  ];
+
+  const [selectedTickets, setSelectedTickets] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleOnChange = (e) => {
+    setSelectedTickets(e.target.value);
+    setShowPopup(true); // This will show the popup when a selection is made
+  };
+  const handleClose = () => {
+    setShowPopup(!showPopup);
+  };
 
   return (
     <>
@@ -93,36 +99,40 @@ const Payment = () => {
                   onChange={(date) => setStartDate(date)}
                   icon="fa fa-calendar"
                   dateFormat="MMMM d, yyyy"
+                  minDate={today}
                 />
               </div>
             </div>
-            <div className="time mt-3 py-2 flex  justify-center items-center shadow appearance-none border rounded">
-              <div className="pl-2 lable text-2xl text-gray-400 ">
+            <div className="time  mt-3 py-2 flex justify-center items-center shadow appearance-none border rounded relative z-80">
+              <div className="pl-2 label text-2xl text-gray-400">
                 <IoMdTime />
               </div>
 
               <Dropdown
-                value={selectedtime}
-                onChange={(e) => setSelectedtime(e.value)}
+                panelClassName="custom-dropdown"
+                value={selectedTime}
+                onChange={(e) => setSelectedTime(e.value)}
                 options={times}
                 optionLabel="name"
-                placeholder="choose time-slot"
-                className="w-full md:w-14rem mx-2 text-center items-center"
+                placeholder="Choose time-slot"
+                className="w-full md:w-14rem mx-2 text-center z0 items-center "
+                dropdownClassName="absolute z-20 flex flex-col justify-center items-center h-120 w-full bg-white"
               />
             </div>
-            <div className="sekecttickets mt-3 py-2 flex  justify-center items-center shadow appearance-none border rounded">
-              <div className="pl-2 lable text-2xl text-gray-400 ">
+
+            <div
+              onClick={handleOnChange}
+              className="select-tickets mt-3 py-2  flex justify-center items-center shadow appearance-none border rounded"
+            >
+              <div className="pl-2 label text-2xl text-gray-400">
                 <FaPeopleRoof />
               </div>
-
-              <Dropdown
-                value={selectedtickets}
-                onChange={(e) => setSelectedtickets(e.value)}
-                options={tickets}
-                optionLabel="name"
-                placeholder="choose a tickets"
-                className="w-full md:w-14rem mx-2 text-center items-center"
-              />
+              <span className="w-full text-center">Select Your Tickets</span>
+              <select
+                value={selectedTickets}
+                className=" md:w-14rem mx-2 text-center overflow-hidden"
+              ></select>
+              {showPopup && <TicketSelectionPopup onClose={handleClose} />}
             </div>
             <div className="btn mt-3 w-full">
               <Button className=" bg-green-700 w-full py-[3px]">
@@ -186,10 +196,12 @@ const Payment = () => {
           </div>
         </div>
         <div className="drop my-10 max-w-[100%] border-none">
-          <Accordion collapseAll className=" border-none" >
-            <AccordionPanel >
-            <hr />
-              <AccordionTitle className=" p-4">What is Flowbite?</AccordionTitle>
+          <Accordion collapseAll className=" border-none">
+            <AccordionPanel>
+              <hr />
+              <AccordionTitle className=" p-4">
+                What is Flowbite?
+              </AccordionTitle>
               <hr />
               <AccordionContent>
                 <p className="mb-2  text-gray-500 dark:text-gray-400">
@@ -211,7 +223,9 @@ const Payment = () => {
               </AccordionContent>
             </AccordionPanel>
             <AccordionPanel>
-              <AccordionTitle className=" p-4">Is there a Figma file available?</AccordionTitle>
+              <AccordionTitle className=" p-4">
+                Is there a Figma file available?
+              </AccordionTitle>
               <hr />
               <AccordionContent>
                 <p className="mb-2 text-gray-500 dark:text-gray-400">
