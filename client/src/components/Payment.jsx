@@ -20,11 +20,17 @@ import {
   AccordionTitle,
 } from "flowbite-react";
 import TicketSelectionPopup from "./TicketSelectionPopup";
+import Modal from "react-modal";
 
 const Payment = () => {
   const [startDate, setStartDate] = useState(new Date());
   const today = new Date();
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedTime, setSelectedTime] = useState({
+    name: "09:00-10:00",
+    code: "NY",
+  });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const times = [
     { name: "09:00-10:00", code: "NY" },
     { name: "10:00-11:00", code: "RM" },
@@ -33,15 +39,19 @@ const Payment = () => {
     { name: "12:00-01:00", code: "PRS" },
   ];
 
+  const handleTimeSelection = (time, event) => {
+    setSelectedTime(time);
+    setIsModalOpen(false); // Close the modal after selecting a time
+    event.stopPropagation();
+  };
+
+  console.log(times);
+
   const [selectedTickets, setSelectedTickets] = useState("");
   const [showPopup, setShowPopup] = useState(false);
 
-  const handleOnChange = (e) => {
-    setSelectedTickets(e.target.value);
-    setShowPopup(true); // This will show the popup when a selection is made
-  };
   const handleClose = () => {
-    setShowPopup(!showPopup);
+    setShowPopup(false);
   };
 
   return (
@@ -103,25 +113,46 @@ const Payment = () => {
                 />
               </div>
             </div>
-            <div className="time  mt-3 py-2 flex justify-center items-center shadow appearance-none border rounded relative z-80">
+            <div
+              onClick={() => setIsModalOpen(true)}
+              className="time mt-3 py-2 flex items-center shadow appearance-none border rounded relative z-80"
+            >
               <div className="pl-2 label text-2xl text-gray-400">
                 <IoMdTime />
               </div>
 
-              <Dropdown
-                panelClassName="custom-dropdown"
-                value={selectedTime}
-                onChange={(e) => setSelectedTime(e.value)}
-                options={times}
-                optionLabel="name"
-                placeholder="Choose time-slot"
-                className="w-full md:w-14rem mx-2 text-center z0 items-center "
-                dropdownClassName="absolute z-20 flex flex-col justify-center items-center h-120 w-full bg-white"
-              />
+              {/* Display the selected time */}
+              <div className="text-center items-center m-auto">
+                {selectedTime && selectedTime.name}
+              </div>
+
+              <Modal
+                isOpen={isModalOpen}
+                onRequestClose={() => setIsModalOpen(false)}
+                appElement={document.getElementById("root")}
+              >
+                <div className="flex flex-col justify-center items-center">
+                  {times.map((time, index) => (
+                    <button
+                      key={index}
+                      onClick={(event) => handleTimeSelection(time, event)}
+                      className={`w-full md:w-14rem mx-2 text-center py-2 border rounded mb-2 ${
+                        time.code === selectedTime.code
+                          ? "bg-blue-500 text-white"
+                          : ""
+                      }`}
+                    >
+                      {time.name}
+                    </button>
+                  ))}
+                </div>
+              </Modal>
             </div>
 
             <div
-              onClick={handleOnChange}
+              onClick={() => {
+                setShowPopup(true);
+              }}
               className="select-tickets mt-3 py-2  flex justify-center items-center shadow appearance-none border rounded"
             >
               <div className="pl-2 label text-2xl text-gray-400">
@@ -132,8 +163,8 @@ const Payment = () => {
                 value={selectedTickets}
                 className=" md:w-14rem mx-2 text-center overflow-hidden"
               ></select>
-              {showPopup && <TicketSelectionPopup onClose={handleClose} />}
             </div>
+            <TicketSelectionPopup onClose={handleClose} visible={showPopup} />
             <div className="btn mt-3 w-full">
               <Button className=" bg-green-700 w-full py-[3px]">
                 Book now

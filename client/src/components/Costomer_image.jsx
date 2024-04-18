@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import Slider from "react-slick";
 import { IoStar } from "react-icons/io5";
 import { Card } from "flowbite-react";
 import { Mightlikedata } from "../pages/data";
+import ReviewComment from "./ReviewComment";
 
 function Costomer_image() {
   var settings = {
@@ -114,85 +116,18 @@ function Costomer_image() {
         </Slider>
       </div>
       <hr className=" mb-5" />
-      <div className="review bg-slate-300 p-10">
-        <p className=" font-bold text-[20px] text-gray-600">23444 review</p>
-        <div className="user_review">
-          <div className="profile flex flex-row gap-3">
-            <div className="profilename flex flex-row">
-              <p className="w-[50px] h-[50px] text-white bg-blue-800 rounded-full text-center items-center pt-3">
-                M
-              </p>
-            </div>
-            <div className="text flex  flex-col ">
-              <div className="name text-[20px] font-bold">Hritik Singh</div>
-              <div className="date font-bold text-gray-500">
-                Feb 29 , 2024 - verified customer
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="rating font-bold text-[15px] my-5 flex gap-3">
-          <div className="star text-yellow-400 flex">
-            <IoStar />
-            <IoStar />
-            <IoStar />
-            <IoStar />
-            <IoStar />
-          </div>
-          <p className="text-[20px]">Excellent</p>
-        </div>
-        <div className="paratext">
-          <p className=" text-[20px] text-justify text-gray-700 font-bold">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed autem
-            ad vitae nobis voluptates eos, voluptate quod praesentium fuga
-            repellat? Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Laudantium tempore, repellat possimus hic blanditiis sapiente
-            accusamus quo commodi laboriosam minus.
-          </p>
-        </div>
-      </div>
-      <div className="review bg-slate-300 p-10 my-2">
-        <p className=" font-bold text-[20px] text-gray-600">23444 review</p>
-        <div className="user_review">
-          <div className="profile flex flex-row gap-3">
-            <div className="profilename flex flex-row">
-              <p className="w-[50px] h-[50px] text-white bg-blue-800 rounded-full text-center items-center pt-3">
-                M
-              </p>
-            </div>
-            <div className="text flex  flex-col ">
-              <div className="name text-[20px] font-bold">Hritik Singh</div>
-              <div className="date font-bold text-gray-500">
-                Feb 29 , 2024 - verified customer
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="rating font-bold text-[15px] my-5 flex gap-3">
-          <div className="star text-yellow-400 flex">
-            <IoStar />
-            <IoStar />
-            <IoStar />
-            <IoStar />
-            <IoStar />
-          </div>
-          <p className="text-[20px]">Excellent</p>
-        </div>
-        <div className="paratext">
-          <p className=" text-[20px] text-justify text-gray-700 font-bold">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed autem
-            ad vitae nobis voluptates eos, voluptate quod praesentium fuga
-            repellat? Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Laudantium tempore, repellat possimus hic blanditiis sapiente
-            accusamus quo commodi laboriosam minus.
-          </p>
-        </div>
-      </div>
-      <h1 className=" mt-14 mb-2 text-3xl font-bold">You might like also</h1>
+      <ReviewComment />
+
+      <h1 className=" mt-14 mb-2 text-3xl font-bold text-center">
+        You might like also
+      </h1>
       <hr />
-      <div className="you_might_like_section my-10  gap-4 w-[80%]  m-auto grid grid-cols-3 max-[850px]:grid-cols-2 max-[550px]:grid-cols-1 max-[1350px]:w-[90%] max-[1050px]:w-[98%] ">
+      <div className="you_might_like_section my-10   w-[100%]   grid grid-cols-3 max-[850px]:grid-cols-2 max-[550px]:grid-cols-1 max-[1350px]:w-[90%] max-[1050px]:w-[98%] ">
         {Mightlikedata.map((d) => (
-          <div className=" max-w-[410px] rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 m-auto">
+          <div
+            key={d.img}
+            className=" max-w-[330px] rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 m-auto"
+          >
             <img
               src={d.img}
               alt=""

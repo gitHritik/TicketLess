@@ -1,10 +1,28 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Modal = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImageSrc, setModalImageSrc] = useState("");
+
+  useEffect(() => {
+    // Add event listener to close modal when clicking outside the images
+    const handleOutsideClick = (event) => {
+      if (event.target.id === "modal") {
+        closeModal();
+      }
+    };
+
+    if (modalOpen) {
+      document.addEventListener("click", handleOutsideClick);
+    }
+
+    // Remove event listener on component unmount
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [modalOpen]);
 
   const openModal = (src) => {
     setModalImageSrc(src);
