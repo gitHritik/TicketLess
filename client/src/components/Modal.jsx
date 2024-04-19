@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Modal = () => {
+const Modal = ({ image }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImageSrc, setModalImageSrc] = useState("");
 
@@ -38,13 +39,9 @@ const Modal = () => {
       <div className="p-10 grid grid-cols-3 gap-5 max-[700px]:grid-cols-1 ">
         <img
           className="w-full h-full object-cover cursor-pointer"
-          src="https://media.geeksforgeeks.org/wp-content/uploads/20240215121528/javare15.png"
+          src={image}
           alt="Img 1"
-          onClick={() =>
-            openModal(
-              "https://media.geeksforgeeks.org/wp-content/uploads/20240215121528/javare15.png"
-            )
-          }
+          onClick={() => openModal(image)}
         />
 
         <img

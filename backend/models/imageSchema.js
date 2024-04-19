@@ -26,6 +26,9 @@ const imgageSchema = mongoose.Schema(
     comment: {
       type: Number,
     },
+    price: {
+      type: Number,
+    },
     popularPlaces: [
       {
         Mname: String,
@@ -34,6 +37,7 @@ const imgageSchema = mongoose.Schema(
         Mcomments: Number,
         Mimage: [],
         Msublocation: String,
+        Mprice: Number,
       },
       {
         Mname: String,
@@ -42,6 +46,7 @@ const imgageSchema = mongoose.Schema(
         Mcomments: Number,
         Mimage: [],
         Msublocation: String,
+        Mprice: Number,
       },
       {
         Mname: String,
@@ -50,6 +55,18 @@ const imgageSchema = mongoose.Schema(
         Mcomments: Number,
         Mimage: [],
         Msublocation: String,
+        Mprice: Number,
+      },
+    ],
+    included: [],
+    notincluded: [],
+    customerImages: [],
+    comments: [
+      {
+        name: String,
+        date: String,
+        comment: String,
+        stars: Number,
       },
     ],
   },

@@ -8,20 +8,20 @@ import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../constant";
 
-const Booktickets = () => {
+const UnleaseBookTickets = () => {
   const [data, setData] = useState("");
 
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
   useEffect(() => {
-    const getData = async () => {
+    const getInfo = async () => {
       const res = await axios.get(
-        `${BACKEND_URL}/api/images/singleImage/` + path
+        `${BACKEND_URL}/api/images/singleImageUnlease/` + path
       );
       setData(res.data);
     };
-    getData();
+    getInfo();
   }, [path]);
 
   console.log(data);
@@ -61,4 +61,4 @@ const Booktickets = () => {
   );
 };
 
-export default Booktickets;
+export default UnleaseBookTickets;

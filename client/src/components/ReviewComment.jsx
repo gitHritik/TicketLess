@@ -1,12 +1,13 @@
+/* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { IoStar } from "react-icons/io5";
 
-const ReviewComment = () => {
+const ReviewComment = ({ comments }) => {
   return (
     <div className="review">
-      {[...Array(2)].map((_, index) => (
-        <div key={index} className=" bg-[#F2F4F7] p-10 mb-4 rounded-lg">
+      {comments?.map((item, id) => (
+        <div key={id} className=" bg-[#F2F4F7] p-10 mb-4 rounded-lg">
           <div className="user_review">
             <div className="profile flex flex-row gap-3">
               <div className="profilename flex flex-row">
@@ -16,10 +17,10 @@ const ReviewComment = () => {
               </div>
               <div className="text flex  flex-col ">
                 <div className="name text-[1rem] font-[500] leading-[1.5rem]">
-                  Hritik Singh
+                  {item.className}
                 </div>
                 <div className="date text-[.75rem] leading-[1rem] ">
-                  Feb 29 , 2024 - verified customer
+                  {item.date}- verified customer
                 </div>
               </div>
             </div>
@@ -38,11 +39,7 @@ const ReviewComment = () => {
           </div>
           <div className="paratext">
             <p className=" text-[20px] text-justify text-gray-700 ">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed
-              autem ad vitae nobis voluptates eos, voluptate quod praesentium
-              fuga repellat? Lorem ipsum dolor, sit amet consectetur adipisicing
-              elit. Laudantium tempore, repellat possimus hic blanditiis
-              sapiente accusamus quo commodi laboriosam minus.
+              {item.comment}
             </p>
           </div>
         </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
@@ -22,7 +23,7 @@ import {
 import TicketSelectionPopup from "./TicketSelectionPopup";
 import Modal from "react-modal";
 
-const Payment = () => {
+const Payment = ({ price, include, notIncluded }) => {
   const [startDate, setStartDate] = useState(new Date());
   const today = new Date();
   const [selectedTime, setSelectedTime] = useState({
@@ -44,8 +45,6 @@ const Payment = () => {
     setIsModalOpen(false); // Close the modal after selecting a time
     event.stopPropagation();
   };
-
-  console.log(times);
 
   const [selectedTickets, setSelectedTickets] = useState("");
   const [showPopup, setShowPopup] = useState(false);
@@ -96,7 +95,7 @@ const Payment = () => {
           <div className="from shadow appearance-none border rounded p-6 ">
             <h4 className="text-[14px] font-bold text-gray-400">From</h4>
             <div className="price font-bold text-[18px] pb-2 text-gray-600">
-              Rs. 250
+              Rs. {price}
             </div>
             <div className="date py-1 flex items-center  shadow appearance-none border rounded">
               <div className="pl-2 lable text-2xl text-gray-400">
@@ -188,44 +187,24 @@ const Payment = () => {
       <div className="facility my-5 w-[80%] m-auto">
         <div className="whats include">
           <p className=" font-bold text-2xl">what`s include</p>
-          <div className=" flex gap-3 my-2">
-            <div className="icon text-3xl font-bold text-green-600">
-              <HiOutlineCheck />
+          {include?.map((item, id) => (
+            <div key={id} className=" flex gap-3 my-2">
+              <div className="icon text-3xl font-bold text-green-600">
+                <HiOutlineCheck />
+              </div>
+              <div className="text text-[20px]">{item}</div>
             </div>
-            <div className="text text-[20px]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore,
-              veritatis.
-            </div>
-          </div>
-          <div className=" flex gap-3 my-2">
-            <div className="icon text-3xl font-bold text-green-600">
-              <HiOutlineCheck />
-            </div>
-            <div className="text text-[20px]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore,
-              veritatis.
-            </div>
-          </div>
-          <div className=" flex gap-3 my-2">
-            <div className="icon text-3xl font-bold text-green-600">
-              <HiOutlineCheck />
-            </div>
-            <div className="text text-[20px]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore,
-              veritatis.
-            </div>
-          </div>
+          ))}
         </div>
         <p className=" font-bold text-2xl mt-10">what`s not include</p>
-        <div className=" flex gap-3 my-2">
-          <div className="icon text-3xl font-bold text-red-600">
-            <RxCross2 />
+        {include?.map((item, id) => (
+          <div key={id} className=" flex gap-3 my-2">
+            <div className="icon text-3xl font-bold text-red-600">
+              <RxCross2 />
+            </div>
+            <div className="text text-[20px]">{item}</div>
           </div>
-          <div className="text text-[20px]">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore,
-            veritatis.
-          </div>
-        </div>
+        ))}
         <div className="drop my-10 max-w-[100%] border-none">
           <Accordion collapseAll className=" border-none">
             <AccordionPanel>

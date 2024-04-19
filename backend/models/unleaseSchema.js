@@ -32,6 +32,9 @@ const unleaseSchema = mongoose.Schema(
     rating: {
       type: Number,
     },
+    price: {
+      type: Number,
+    },
     views: {
       type: Number,
     },
@@ -47,6 +50,7 @@ const unleaseSchema = mongoose.Schema(
         Mcomments: Number,
         Mimage: [],
         MsubLocation: String,
+        Mprice: Number,
       },
       {
         Mname: String,
@@ -55,6 +59,7 @@ const unleaseSchema = mongoose.Schema(
         Mcomments: Number,
         Mimage: [],
         MsubLocation: String,
+        Mprice: Number,
       },
       {
         Mname: String,
@@ -63,6 +68,18 @@ const unleaseSchema = mongoose.Schema(
         Mcomments: Number,
         Mimage: [],
         MsubLocation: String,
+        Mprice: Number,
+      },
+    ],
+    included: [],
+    notincluded: [],
+    customerImages: [],
+    comments: [
+      {
+        name: String,
+        date: String,
+        comment: String,
+        stars: Number,
       },
     ],
   },

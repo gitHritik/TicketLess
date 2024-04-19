@@ -55,13 +55,13 @@ const DestInfromation = () => {
       <Navbar />
       <article className="" data-aos="fade-up">
         <div className="mb-4 md:mb-0 w-full mx-auto relative">
-        {data.locationImage && (
-          <img
-            src={data.locationImage[0]}
-            className="w-full object-cover lg:rounded brightness-50"
-            style={{ height: "28em" }}
-            alt="Blog Cover"
-          />
+          {data.locationImage && (
+            <img
+              src={data.locationImage[0]}
+              className="w-full object-cover lg:rounded brightness-50"
+              style={{ height: "28em" }}
+              alt="Blog Cover"
+            />
           )}
           <div className="px-4 lg:px-0 text-center">
             <h2 className="text-4xl font-semibold text-gray-800 leading-tight">
@@ -81,10 +81,10 @@ const DestInfromation = () => {
           </div>
         </div>
         <div className="w-full text-center mt-7">
-        <Link to="/id/booktickets">
-          <button className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-            Book Tickets
-          </button>
+          <Link to={"/booking/" + path}>
+            <button className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+              Book Tickets
+            </button>
           </Link>
         </div>
 
