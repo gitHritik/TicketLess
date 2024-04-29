@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 import Comment from "../components/Comment";
 import { FaHeart } from "react-icons/fa";
 import { BACKEND_URL } from "../constant";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
 const PopularLocations = () => {
@@ -61,12 +61,14 @@ const PopularLocations = () => {
       <Navbar />
       <article className="mb-4" data-aos="fade-up">
         <div className="mb-4 md:mb-0 w-full mx-auto relative">
-          {data.Mimage && ( <img
-            src={data.Mimage[0]}
-            className="w-full object-cover lg:rounded brightness-50"
-            style={{ height: "28em" }}
-            alt="Blog Cover"
-          />)}
+          {data.Mimage && (
+            <img
+              src={data.Mimage[0]}
+              className="w-full object-cover lg:rounded brightness-50"
+              style={{ height: "28em" }}
+              alt="Blog Cover"
+            />
+          )}
           <div className="px-4 lg:px-0 text-center">
             <h2 className="text-4xl font-semibold text-gray-800 leading-tight">
               {wholeData.location}
@@ -85,9 +87,11 @@ const PopularLocations = () => {
           </div>
         </div>
         <div className="w-full text-center mt-7">
-          <button className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-            Book Tickets
-          </button>
+          <Link to={"/popularbooking/" + path}>
+            <button className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+              Book Tickets
+            </button>
+          </Link>
         </div>
 
         <div className="flex text-center justify-around align-middle mt-8 md:w-full">

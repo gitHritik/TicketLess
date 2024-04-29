@@ -36,36 +36,30 @@ const Modal = ({ image }) => {
 
   return (
     <>
-      <div className="p-10 grid grid-cols-3 gap-5 max-[700px]:grid-cols-1 ">
-        <img
-          className="w-full h-full object-cover cursor-pointer"
-          src={image}
-          alt="Img 1"
-          onClick={() => openModal(image)}
-        />
+      {image && (
+        <div className="p-10 grid grid-cols-3 gap-5 max-[700px]:grid-cols-1 ">
+          <img
+            className="w-full h-full object-cover cursor-pointer"
+            src={image[0]}
+            alt="Img 1"
+            onClick={() => openModal(image[0])}
+          />
 
-        <img
-          className="w-full h-full object-cover cursor-pointer"
-          src="https://media.geeksforgeeks.org/wp-content/uploads/20240215121204/15re.webp"
-          alt="Img 2"
-          onClick={() =>
-            openModal(
-              "https://media.geeksforgeeks.org/wp-content/uploads/20240215121204/15re.webp"
-            )
-          }
-        />
+          <img
+            className="w-full h-full object-cover cursor-pointer"
+            src={image[1]}
+            alt="Img 2"
+            onClick={() => openModal(image[1])}
+          />
 
-        <img
-          className="w-full h-full object-cover cursor-pointer"
-          src="https://media.geeksforgeeks.org/wp-content/uploads/20240215121356/jsre15.jpg"
-          alt="Img 3"
-          onClick={() =>
-            openModal(
-              "https://media.geeksforgeeks.org/wp-content/uploads/20240215121356/jsre15.jpg"
-            )
-          }
-        />
-      </div>
+          <img
+            className="w-full h-full object-cover cursor-pointer"
+            src={image[2]}
+            alt="Img 3"
+            onClick={() => openModal(image[2])}
+          />
+        </div>
+      )}
 
       {modalOpen && (
         <div

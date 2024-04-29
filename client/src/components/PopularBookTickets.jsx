@@ -3,31 +3,45 @@ import React, { useEffect, useState } from "react";
 import Modal from "./Modal";
 import Payment from "./Payment";
 import Costomer_image from "./Costomer_image";
-import Footer from "../components/Footer";
+import Footer from "./Footer";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../constant";
 
-const Booktickets = () => {
+const PopularBookTickets = () => {
   const [data, setData] = useState("");
+  const [wholeData, setWholeData] = useState("");
 
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get(
-        `${BACKEND_URL}/api/images/singleImage/` + path
-      );
-      setData(res.data);
+      const res = await axios.get(`${BACKEND_URL}/api/images/popular/` + path);
+      setData(res.data.popularPlaces);
+      setWholeData(res.data);
     };
     getData();
   }, [path]);
 
+  useEffect(() => {
+    const getData = async () => {
+      const res = await axios.get(
+        `${BACKEND_URL}/api/images/popularUnlease/` + path
+      );
+      setData(res.data.popularPlaces);
+      setWholeData(res.data);
+    };
+    getData();
+  }, [path]);
+
+  console.log("wholeData :", wholeData);
+  console.log("data:", data);
+
   return (
     <>
       <div className="">
-        <Modal image={data?.locationImage} />
+        <Modal image={wholeData?.locationImage} />
       </div>
 
       <div className="">
@@ -59,4 +73,4 @@ const Booktickets = () => {
   );
 };
 
-export default Booktickets;
+export default PopularBookTickets;

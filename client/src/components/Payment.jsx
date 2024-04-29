@@ -196,15 +196,7 @@ const Payment = ({ price, include, notIncluded }) => {
             </div>
           ))}
         </div>
-        <p className=" font-bold text-2xl mt-10">what`s not include</p>
-        {include?.map((item, id) => (
-          <div key={id} className=" flex gap-3 my-2">
-            <div className="icon text-3xl font-bold text-red-600">
-              <RxCross2 />
-            </div>
-            <div className="text text-[20px]">{item}</div>
-          </div>
-        ))}
+
         <div className="drop my-10 max-w-[100%] border-none">
           <Accordion collapseAll className=" border-none">
             <AccordionPanel>

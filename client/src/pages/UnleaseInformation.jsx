@@ -56,7 +56,7 @@ const UnleaseInformation = () => {
         <div className="mb-4 md:mb-0 w-full mx-auto relative">
           {info.locationImage && (
             <img
-              src={info.locationImage}
+              src={info.locationImage[0]}
               className="w-full object-cover lg:rounded brightness-50"
               style={{ height: "28em" }}
               alt="Blog Cover"

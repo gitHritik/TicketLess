@@ -42,6 +42,9 @@ const unleaseSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    status: {
+      type: String,
+    },
     popularPlaces: [
       {
         Mname: String,
@@ -51,6 +54,7 @@ const unleaseSchema = mongoose.Schema(
         Mimage: [],
         MsubLocation: String,
         Mprice: Number,
+        Mstatus: String,
       },
       {
         Mname: String,
@@ -60,6 +64,7 @@ const unleaseSchema = mongoose.Schema(
         Mimage: [],
         MsubLocation: String,
         Mprice: Number,
+        Mstatus: String,
       },
       {
         Mname: String,
@@ -69,6 +74,7 @@ const unleaseSchema = mongoose.Schema(
         Mimage: [],
         MsubLocation: String,
         Mprice: Number,
+        Mstatus: String,
       },
     ],
     included: [],

@@ -1,40 +1,46 @@
 Creation End Point = Post -> http://localhost:5000/api/images/scroller
 Format -> 
 {
-  "location": "Golden Temple",
-  "subLocation": "Atta Mandi, Katra Ahluwalia, Amritsar, Amritsar Cantt., Punjab 143006",
-  "museumName": "Harmandir Sahib",
-  "locationImage": ["https://images.pexels.com/photos/5499899/pexels-photo-5499899.jpeg?auto=compress&cs=tinysrgb&w=600","https://images.pexels.com/photos/5459132/pexels-photo-5459132.jpeg?auto=compress&cs=tinysrgb&w=600","https://images.pexels.com/photos/5499900/pexels-photo-5499900.jpeg?auto=compress&cs=tinysrgb&w=600"],
+  "location": "Odisha",
+  "subLocation": "Konarak Sun Temple, Konark, Puri District, Odisha",
+  "museumName": "Sun Temple Konark",
+  "locationImage": ["https://imgcld.yatra.com/ytimages/image/upload/t_monuments_detailslargeimg/v1514015145/Monuments/puri/27c9a98d-0964-499c-a065-721a4aeffe10/4_jwxACa.jpg","https://imgcld.yatra.com/ytimages/image/upload/t_monuments_detailslargeimg/v1514015134/Monuments/puri/27c9a98d-0964-499c-a065-721a4aeffe10/1_Rl6iJa.jpg","https://imgcld.yatra.com/ytimages/image/upload/t_monuments_detailslargeimg/v1514015138/Monuments/puri/27c9a98d-0964-499c-a065-721a4aeffe10/2_2F5VMg.jpg"],
   "category": "Monument",
-  "description": "The man-made pool on the site of the temple was completed by the fourth Sikh Guru, Guru Ram Das, in 1577.[6][7] In 1604, Guru Arjan, the fifth Sikh Guru, placed a copy of the Adi Granth in the Golden Temple and was a prominent figure in its development.[3][8] The gurdwara was repeatedly rebuilt by the Sikhs after it became a target of persecution and was destroyed several times by the Mughal and invading Afghan armies.[3][5][9] Maharaja Ranjit Singh, after founding the Sikh Empire, rebuilt it in marble and copper in 1809, and overlaid the sanctum with gold leaf in 1830. This has led to the name the Golden Temple.[10][11][12] The Golden Temple is spiritually the most significant shrine in Sikhism. It became a centre of the Singh Sabha Movement between 1883 and the 1920s, and the Punjabi Suba movement between 1947 and 1966. In the early 1980s, the gurdwara became a centre of conflict between the Indian government and a radical movement led by Jarnail Singh Bhindranwale.[13] In 1984, Prime Minister Indira Gandhi sent in the Indian Army as part of Operation Blue Star, leading to deaths of more than 1,000 soldiers, militants and civilians, as well as causing much damage to the gurdwara and the destruction of Akal Takht. The gurdwara complex was rebuilt again after the 1984 damage.[5].",
-  "likes": 18,
-  "comment": 15,
+  "description": "Here the language of stone surpasses the language of man says Rabindranath Tagore, about the iconic Sun Temple at Konark. A UNESCO World Heritage Site, this splendid structure, which is designed as the cosmic chariot of the SunGod, is one of India's signature buildings.This 13th century marvel was constructed by the Odishan king Narashimhadev I, to celebrate his victory. Its 24cartwheels (epitomizing the hours of the day) are decorated with symbolic designs and is led by a team of sevenhorses (personifying days of the week). The entire temple structure, which is a perfect blend of Dravidian and Orissanstyles of architecture, is full of exquisite stone carvings.The Sun Temple is designed in a way that the dawn would illuminate the temple sanctuary. The images of Sun God atthree sides of the structure are positioned to catch the sunrays at morning, noon and evening. The Sun Temple in Konark is an amalgam of legends, culture and ancient architectural excellence.",
+  "likes": 0,
+  "comment": 0,
   "rating":23,
-  "price":30,
+  "price":35,
   "views":34343,
+  "status":"confirm",
   "popularity":"mostpopular",
-  "popularPlaces":[  {   "Mname": "Popular Monument 1",    "Mdescription": "Description of Popular Monument 1",     "Mlikes": 100,   "Mcomments": 50, "Mprice":30
+  "popularPlaces":[{ "Mname": "Dhauli",    
+  "Mdescription": "Dhauli is a small town 8 Km away south of Bhubaneswar, located on the bank of river Daya and holds great significance for the followers of lord Buddha. Dhauli is said to be the witness of the reform of Ashoka's character.This is the area which is believed to the land for the Kalinga War in the 3rd century B.C. between the Mauryan Empire led by Great Ashoka and Kalinga kingdom. The war was so intense that it is said that Daya's water had turned red with the bloodshed because of the massacre. This also led to significant change in the beliefs of King Ashoka and he eventually adopted Buddhism His responses to this war were recorded in forms of Ashoka edicts, which are essentially rock structures with inscriptions on them. Dhauli has several major Ashoka edicts and it is now an important centre for Buddhism in India. Ashoka built several Stupas, Chaityas, Pillars around the town and did his best to create a peaceful society by helping others post war. Dhauli has a beautiful Peace Pagoda which attracts thousands of tourists every year. Besides Buddhists, Hindus also visit Dhauli to visit some of the ancient temples of great reverence situated in this beautiful town. There are also other attractions in Dhauli like rock cut caves, Sadharma vihar monastery, which would definitely make your visit worth the time.",
+  "Mlikes": 100,   "Mcomments": 50, "Mprice":30,  "Mimage":["https://www.holidify.com/images/bgImages/DHAULI.jpg","https://www.holidify.com/images/compressed/79.jpg","https://www.holidify.com/images/compressed/78.jpg"],"Mstatus": "confirm","MsubLocation":"The land of Kalinga War"
     },
     {
-      "Mname": "Popular Monument 2",
-      "Mdescription": "Description of Popular Monument 2",
+      "Mname": "Barabati Fort",
+      "Mdescription": "The Barbati Fort in Cuttack in Oddisa is a well known fort with carved gateway. It is about 8km away from the city. It is a 14th century fort build during the Ganga dynasty. The fort is situated on the river Mahanadi. The fort is situated at such a calculated place that it provides a beautiful and spectacular view of the modern Cuttack city. It is the earthen mound of the 9 storeyed palace. The monument was built with fortification to protect from enemy attacks. In present days a nearby Barbati stadium is build for cultural and various sports events. There is also a temple dedicated to Katak Chandi. The fort brings charm to the city and depicts its glorious history.",
       "Mlikes": 200,
       "Mcomments": 80,
-     
-       "Mprice":30
+      "Mprice":30,  
+      "Mimage":["https://www.holidify.com/images/compressed/2027.jpg","https://www.holidify.com/images/attr_wiki/compressed/attr_wiki_3395.jpg","https://www.holidify.com/images/attr_wiki/compressed/attr_wiki_3396.jpg"],
+      "Mstatus": "dsfds",
+      "MsubLocation":"Cuttack"
     },
      {
-      "Mname": "Popular Monument 3",
-      "Mdescription": "Description of Popular Monument 2",
+      "Mname": "Udayagiri and Khandagiri Caves",
+      "Mdescription": "Near Bhubaneswar lie the Udaygiri and Khandagiri Caves, carved around 1st century B.C. by Kharavela and successors. These 18 caves, 13 in Udaygiri and 15 in Khandagiri served as retreats for Jain ascetics seeking solitude.Most caves consist of cells opening onto verandas or open spaces, initially used as dormitories. Over time, some transformed into shrines with minor alterations. Adorned doorways showcase intricate motifs of animals, flowers, and arches.Rani Gumpha and Swargapuri-Manchapuri stand out with double-storied structures. Hathigumpha Cave houses Kharavela's inscription, chronicling his triumphs and Jain artifact restoration. Art enthusiasts admire Barahbhuji Cave's sculptures of 24 Tirthankaras and SasanaDevis. Anant Gumpha boasts delicate reliefs of Gajalaxmi, Surya, Swastika, and the Nandipada symbol, showcasing ancient Indian artistry.",
       "Mlikes": 200,
       "Mcomments": 80,
-      "Mimage":"image string",
-      "Mprice":30
+      "Mimage":["https://www.holidify.com/images/cmsuploads/compressed/800px-Mukteshwar_Temple2_20180903001737.jpg","https://www.holidify.com/images/cmsuploads/compressed/800px-Chausath_yogini_temple,_bbsr_-3_20180903001401.jpg","https://www.holidify.com/images/cmsuploads/compressed/800px-Udaygiri_&_Khandagiri_Caves,_Bhubaneswar_(6)_-_Oct_2010_20180903001254.jpg"],
+      "Mprice":30,
+      "Mstatus": "confirm",
+      "MsubLocation":"Khandagiri Caves, Bhubaneswar"
     }
   ],
-  "included":["text1","text2","text3"],
-  "notincluded":["text1","text2","text3"],
-  "customerImages":["img1","img2","img 3"],
+  "included":["Electricity","Toilets for Ladies &amp; Gentleman.","Drinking Water Facility","Signages"],
+  "customerImages":["https://imgcld.yatra.com/ytimages/image/upload/t_monuments_detailslargeimg/v1514015142/Monuments/puri/27c9a98d-0964-499c-a065-721a4aeffe10/3_ZcEZMh.jpg","https://imgcld.yatra.com/ytimages/image/upload/t_monuments_detailslargeimg/v1514015145/Monuments/puri/27c9a98d-0964-499c-a065-721a4aeffe10/4_jwxACa.jpg","https://imgcld.yatra.com/ytimages/image/upload/t_monuments_detailslargeimg/v1514015134/Monuments/puri/27c9a98d-0964-499c-a065-721a4aeffe10/1_Rl6iJa.jpg"],
   "comments":[
     {
       "name":"Name",

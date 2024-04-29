@@ -20,6 +20,7 @@ import ResetPassword from "./pages/ResetPassword.jsx";
 import Booktickets from "./components/Booktickets.jsx";
 import UnleaseInformation from "./pages/UnleaseInformation.jsx";
 import UnleaseBookTickets from "./components/UnleaseBookTickets.jsx";
+import PopularBookTickets from "./components/PopularBookTickets.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -52,6 +53,7 @@ const App = () => {
         <Route path="/reset-password/:resetToken" element={<ResetPassword />} />
         <Route path="/popularLocation/:id" element={<PopularLocations />} />
         <Route path="/booking/:id" element={<Booktickets />} />
+        <Route path="/popularbooking/:id" element={<PopularBookTickets />} />
         <Route path="/unleasebooking/:id" element={<UnleaseBookTickets />} />
       </Routes>
       {/* </div> */}
