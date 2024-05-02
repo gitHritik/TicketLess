@@ -18,7 +18,11 @@ const PopularPlaces = ({ location, popular, category }) => {
       data-aos="fade-up"
     >
       <h2 className="md:text-3xl text-xl font-bold text-center ">
-        Popular {category} in {location}
+        Popular{" "}
+        {category && typeof category === "string"
+          ? category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()
+          : "Category"}
+        in {location}
       </h2>
       <div className="container px-5 py-8 mx-auto">
         <div className="flex flex-wrap -m-4">

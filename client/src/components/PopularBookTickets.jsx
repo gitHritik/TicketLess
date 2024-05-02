@@ -46,8 +46,8 @@ const PopularBookTickets = () => {
 
       <div className="">
         <Payment
-          price={data?.price}
-          include={data?.included}
+          price={data?.Mprice}
+          include={wholeData?.included}
           notIncluded={data?.notincluded}
         />
       </div>
@@ -61,8 +61,8 @@ const PopularBookTickets = () => {
       </Link>
       <div className=" w-[80%] m-auto mb-10">
         <Costomer_image
-          images={data?.customerImages}
-          comment={data?.comments}
+          images={wholeData?.customerImages}
+          comment={wholeData?.comments}
           popularOne={data?.popularPlaces}
         />
       </div>

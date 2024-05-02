@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Modal from "./Modal";
 import Payment from "./Payment";
 import Costomer_image from "./Costomer_image";
@@ -25,6 +25,9 @@ const UnleaseBookTickets = () => {
   }, [path]);
 
   console.log(data);
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

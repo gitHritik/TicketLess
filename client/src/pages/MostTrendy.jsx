@@ -84,7 +84,9 @@ const MostTrendy = ({ title }) => {
                         {d.museumName}
                       </h5>
                       <p className="mb-2 md:text-base text-[13px]  leading-[1.25]  text-neutral-600 ">
-                        {d.description}
+                        {d.description.length > 150
+                          ? `${d.description.substring(0, 150)}...`
+                          : d.description}
                       </p>
                     </div>
                     <div className="ratingandprice flex justify-between md:w-[90%] m-auto mb-2 md:px-0 px-2">

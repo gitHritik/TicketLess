@@ -51,13 +51,17 @@ function Unlease() {
     }
   };
   const shuffledImages = [...data].sort(() => Math.random() - 0.5);
+  console.log(shuffledImages);
 
   useEffect(() => {
     fetchImagesByCategory("Museum");
   }, []);
   return (
-    <div className="bg-gray-100 flex" data-aos="fade-up">
-      <div className="md:w-3/4 m-auto flex flex-col justify-center align-middle ">
+    <div className="bg-gray-100 flex">
+      <div
+        className="md:w-3/4 m-auto flex flex-col justify-center align-middle "
+        data-aos="fade-up"
+      >
         <div className="md:text-[40px] text-[14px] text-center text-[#88563b]  ">
           <h1 className="font-[900] md:mx-10 md:my-3 py-4">
             Unleash Your Adventurous Spirit in Ticketless
@@ -100,7 +104,7 @@ function Unlease() {
                           {d.rating}
                         </p>
                         <p className="text-gray-400 md:text-xs leading-[17px] text-[8px] font-medium">
-                          {d.views}
+                          ({d.views})
                         </p>
                       </div>
                       <button className="price text-center text-gray-800  md:text-[1rem] text-[11px] leading-[1px]">

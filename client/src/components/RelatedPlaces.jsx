@@ -26,7 +26,10 @@ const RelatedPlaces = ({ popular, category }) => {
               />
               <div className="p-6">
                 <p className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                  {category}
+                  {category && typeof category === "string"
+                    ? category.charAt(0).toUpperCase() +
+                      category.slice(1).toLowerCase()
+                    : "Category"}
                 </p>
                 <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                   {item.Mname}

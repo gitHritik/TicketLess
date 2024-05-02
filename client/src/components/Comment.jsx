@@ -14,7 +14,7 @@ const Comment = ({ visible, onClose, comment }) => {
   };
   return (
     <>
-    <section className="bg-white mb-6 dark:bg-gray-900 py-8 lg:py-16 md:ml-[150px] md:mr-[150px]  antialiased mt-8">
+      <section className=" mb-6 bg-gray-900 py-8 lg:py-16 md:ml-[150px] md:mr-[150px]  antialiased mt-8">
         <div
           className="flex justify-end cursor-pointer align-top mr-6 relative bottom-[5px] md:bottom-[40px]"
           onClick={handleOnClose}

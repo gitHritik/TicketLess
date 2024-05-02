@@ -64,10 +64,10 @@ const MostPopular = ({ title }) => {
                 key={id}
                 className="mb-5 md:block cursor-pointer bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] flex-none  md:w-[95%]  md:pb-4 border rounded-lg"
               >
-                <Link to="/id/info">
+                <Link to={"/unleaseinfo/" + d?._id}>
                   <div className="relative overflow-hidden bg-cover bg-no-repeat">
                     <img
-                      src={d.locationImage}
+                      src={d.locationImage[0]}
                       alt=""
                       className="rounded-t-lg md:w-[347px] md:h-[270px] w-[167px] h-[117px]"
                     />
@@ -82,7 +82,9 @@ const MostPopular = ({ title }) => {
                         {d.museumName}
                       </h5>
                       <p className="mb-2 md:text-base text-[13px]  leading-[1.25]  text-neutral-600 ">
-                        {d.description}
+                        {d.description.length > 150
+                          ? `${d.description.substring(0, 150)}...`
+                          : d.description}
                       </p>
                     </div>
                     <div className="ratingandprice flex justify-between md:w-[90%] m-auto mb-2 md:px-0 px-2">
