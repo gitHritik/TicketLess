@@ -1,11 +1,11 @@
-Creation End Point = Post -> http://localhost:5000/api/images/scroller
+Creation End Point = Post -> http://localhost:5000/api/images/unlease
 Format -> 
 {
   "location": "Odisha",
   "subLocation": "Konarak Sun Temple, Konark, Puri District, Odisha",
   "museumName": "Sun Temple Konark",
   "locationImage": ["https://imgcld.yatra.com/ytimages/image/upload/t_monuments_detailslargeimg/v1514015145/Monuments/puri/27c9a98d-0964-499c-a065-721a4aeffe10/4_jwxACa.jpg","https://imgcld.yatra.com/ytimages/image/upload/t_monuments_detailslargeimg/v1514015134/Monuments/puri/27c9a98d-0964-499c-a065-721a4aeffe10/1_Rl6iJa.jpg","https://imgcld.yatra.com/ytimages/image/upload/t_monuments_detailslargeimg/v1514015138/Monuments/puri/27c9a98d-0964-499c-a065-721a4aeffe10/2_2F5VMg.jpg"],
-  "category": "Monument",
+  "category": "Monument,Museum,inme se koi ek",
   "description": "Here the language of stone surpasses the language of man says Rabindranath Tagore, about the iconic Sun Temple at Konark. A UNESCO World Heritage Site, this splendid structure, which is designed as the cosmic chariot of the SunGod, is one of India's signature buildings.This 13th century marvel was constructed by the Odishan king Narashimhadev I, to celebrate his victory. Its 24cartwheels (epitomizing the hours of the day) are decorated with symbolic designs and is led by a team of sevenhorses (personifying days of the week). The entire temple structure, which is a perfect blend of Dravidian and Orissanstyles of architecture, is full of exquisite stone carvings.The Sun Temple is designed in a way that the dawn would illuminate the temple sanctuary. The images of Sun God atthree sides of the structure are positioned to catch the sunrays at morning, noon and evening. The Sun Temple in Konark is an amalgam of legends, culture and ancient architectural excellence.",
   "likes": 0,
   "comment": 0,
@@ -13,7 +13,7 @@ Format ->
   "price":35,
   "views":34343,
   "status":"confirm",
-  "popularity":"mostpopular",
+  "popularity":"mostpopular,mostvisited,mosttrendy inme se koi ek",
   "popularPlaces":[{ "Mname": "Dhauli",    
   "Mdescription": "Dhauli is a small town 8 Km away south of Bhubaneswar, located on the bank of river Daya and holds great significance for the followers of lord Buddha. Dhauli is said to be the witness of the reform of Ashoka's character.This is the area which is believed to the land for the Kalinga War in the 3rd century B.C. between the Mauryan Empire led by Great Ashoka and Kalinga kingdom. The war was so intense that it is said that Daya's water had turned red with the bloodshed because of the massacre. This also led to significant change in the beliefs of King Ashoka and he eventually adopted Buddhism His responses to this war were recorded in forms of Ashoka edicts, which are essentially rock structures with inscriptions on them. Dhauli has several major Ashoka edicts and it is now an important centre for Buddhism in India. Ashoka built several Stupas, Chaityas, Pillars around the town and did his best to create a peaceful society by helping others post war. Dhauli has a beautiful Peace Pagoda which attracts thousands of tourists every year. Besides Buddhists, Hindus also visit Dhauli to visit some of the ancient temples of great reverence situated in this beautiful town. There are also other attractions in Dhauli like rock cut caves, Sadharma vihar monastery, which would definitely make your visit worth the time.",
   "Mlikes": 100,   "Mcomments": 50, "Mprice":30,  "Mimage":["https://www.holidify.com/images/bgImages/DHAULI.jpg","https://www.holidify.com/images/compressed/79.jpg","https://www.holidify.com/images/compressed/78.jpg"],"Mstatus": "confirm","MsubLocation":"The land of Kalinga War"
