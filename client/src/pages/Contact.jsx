@@ -30,7 +30,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="from w-[45%] max-[900px]:w-[50%] max-[800px]:m-auto max-[800px]:w-[90%]">
-          <form className="md:col-span-8 p-10 mr-10 shadow-inner max-[800px]:m-auto ">
+          <form className="md:col-span-8 p-10 mr-10 shadow-2xl max-[800px]:m-auto ">
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label

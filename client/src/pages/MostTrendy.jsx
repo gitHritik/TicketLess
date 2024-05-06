@@ -69,7 +69,7 @@ const MostTrendy = ({ title }) => {
                 <Link to="/id/info">
                   <div className="relative overflow-hidden bg-cover bg-no-repeat">
                     <img
-                      src={d.locationImage}
+                      src={d.locationImage[0]}
                       alt=""
                       className="rounded-t-lg md:w-[347px] md:h-[270px] w-[167px] h-[117px]"
                     />

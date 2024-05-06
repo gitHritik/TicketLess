@@ -56,6 +56,7 @@ const PopularLocations = () => {
   const handleClick = () => {
     setShowHeart(!showHeart);
   };
+
   return (
     <div className="md:block">
       <Navbar />

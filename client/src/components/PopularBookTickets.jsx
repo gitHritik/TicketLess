@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Modal from "./Modal";
 import Payment from "./Payment";
 import Costomer_image from "./Costomer_image";
@@ -23,6 +23,10 @@ const PopularBookTickets = () => {
     };
     getData();
   }, [path]);
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const getData = async () => {

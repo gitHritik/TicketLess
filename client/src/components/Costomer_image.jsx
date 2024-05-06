@@ -12,12 +12,12 @@ function Costomer_image({ popularOne, comment, images }) {
     dots: false,
     infinite: true,
     speed: 2000,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 2000,
-    slidesToShow: 5,
+    slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    cssEase: "linear",
+    // cssEase: "linear",
     responsive: [
       {
         breakpoint: 1250,
