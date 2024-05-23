@@ -51,7 +51,6 @@ function Unlease() {
     }
   };
   const shuffledImages = [...data].sort(() => Math.random() - 0.5);
-  console.log(shuffledImages);
 
   useEffect(() => {
     fetchImagesByCategory("Museum");

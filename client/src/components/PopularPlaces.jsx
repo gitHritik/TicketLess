@@ -22,6 +22,7 @@ const PopularPlaces = ({ location, popular, category }) => {
         {category && typeof category === "string"
           ? category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()
           : "Category"}
+        {"s "}
         in {location}
       </h2>
       <div className="container px-5 py-8 mx-auto">

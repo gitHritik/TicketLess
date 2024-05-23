@@ -66,7 +66,7 @@ const MostTrendy = ({ title }) => {
                 key={id}
                 className="mb-5 md:block cursor-pointer bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] flex-none  md:w-[95%]  md:pb-4 border rounded-lg"
               >
-                <Link to="/id/info">
+                <Link to={"/unleaseinfo/" + d?._id}>
                   <div className="relative overflow-hidden bg-cover bg-no-repeat">
                     <img
                       src={d.locationImage[0]}

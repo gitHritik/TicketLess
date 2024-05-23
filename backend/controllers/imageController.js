@@ -55,3 +55,26 @@ export const getPopular = async (req, res, next) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+export const getSearch = async (req, res) => {
+  const query = req.query.q;
+  try {
+    const items = await imageModel.find({ museumName: new RegExp(query, "i") });
+
+    res.json(items);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+export const getSearchLocation = async (req, res) => {
+  const query = req.query.q;
+  try {
+    const items = await imageModel.find({ location: new RegExp(query, "i") });
+
+    res.json(items);
+    console.log(query);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};

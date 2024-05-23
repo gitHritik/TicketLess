@@ -95,3 +95,17 @@ export const getByPopularity = async (req, res, next) => {
     next(err);
   }
 };
+
+export const getSearchUnlease = async (req, res) => {
+  const query = req.query.q;
+
+  try {
+    const items = await unleaseModel.find({
+      museumName: new RegExp(query, "i"),
+    });
+
+    res.json(items);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};

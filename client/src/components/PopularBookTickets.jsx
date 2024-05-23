@@ -45,7 +45,7 @@ const PopularBookTickets = () => {
   return (
     <>
       <div className="">
-        <Modal image={wholeData?.locationImage} />
+        <Modal image={data?.Mimage} />
       </div>
 
       <div className="">
@@ -63,13 +63,13 @@ const PopularBookTickets = () => {
           <p className="capitalize font-bold text-white">Go Back</p>
         </div>
       </Link>
-      <div className=" w-[80%] m-auto mb-10">
+      {/* <div className=" w-[80%] m-auto mb-10">
         <Costomer_image
           images={wholeData?.customerImages}
           comment={wholeData?.comments}
           popularOne={data?.popularPlaces}
         />
-      </div>
+      </div> */}
       <div className="suggestion">
         <Footer />
       </div>
