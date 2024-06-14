@@ -9,6 +9,7 @@ import { CiCalendarDate } from "react-icons/ci";
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useLocation } from "react-router-dom";
 
 const Upcoming = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -38,6 +39,7 @@ const Upcoming = () => {
   //     setShowRegister(true);
   //   }
   // };
+
   return (
     <>
       <div data-aos="fade-up">

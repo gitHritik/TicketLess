@@ -4,12 +4,13 @@ import axios from "axios";
 import User from "../models/userSchema.js";
 import generateToken from "../utils/generateToken.js";
 import dotenv from "dotenv";
+import authenticateJWT from "../utils/authenticateJWT.js";
 
 dotenv.config();
 
 const router = express.Router();
 
-//authenticate the user using google
+// Authenticate the user using Google
 router.get(
   "/google/callback",
   passport.authenticate("google", {
@@ -18,7 +19,7 @@ router.get(
   })
 );
 
-//forward the request to goggle's authentication server
+// Forward the request to Google's authentication server
 router.get("/google", async (req, res) => {
   try {
     const response = await axios.get(
@@ -34,24 +35,26 @@ router.get("/google", async (req, res) => {
   }
 });
 
-//register or login user to DB
+// Register or login user to DB
 router.get("/login/success", async (req, res) => {
+  console.log("req.user:", req.user);
   if (req.user) {
-    const userExists = await User.findOne({ email: req.user._json.email });
+    let userExists = await User.findOne({ email: req.user._json.email });
     if (userExists) {
-      generateToken(res, userExists._id);
+      generateToken(userExists._id, res);
     } else {
       const newUser = new User({
         name: req.user._json.name,
         email: req.user._json.email,
-        password: Date.now(), //dummy password
+        password: Date.now(),
       });
-      generateToken(res, newUser._id);
-      await newUser.save();
+      userExists = await newUser.save();
+      generateToken(userExists._id, res);
     }
+
     res.status(200).json({
       user: { ...req.user },
-      message: "Succesfully logged in",
+      message: "Successfully logged in",
       _id: userExists._id,
     });
   } else {
@@ -60,19 +63,28 @@ router.get("/login/success", async (req, res) => {
     });
   }
 });
-
-//login failed
+// Login failed
 router.get("/login/failed", (req, res) => {
   res.status(401);
   throw new Error("Login Failed");
 });
 
-//logout
+router.get("/validate-token", authenticateJWT, (req, res) => {
+  res.status(200).send({ userId: req.userId });
+});
+
+// Logout
 router.get("/logout", (req, res) => {
   req.logout((err) => {
     if (err) {
       console.log(err);
     }
+    // Clear the cookie with matching options
+    // res.clearCookie("auth_token", {
+    //   httpOnly: true,
+    //   secure: process.env.NODE_ENV === "production",
+    //   sameSite: "Strict",
+    // });
     res.redirect("/");
   });
 });

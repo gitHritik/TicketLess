@@ -3,48 +3,63 @@ import User from "../models/userSchema.js";
 import generateToken from "../utils/generateToken.js";
 import crypto from "crypto";
 import sendEmail from "../utils/sendEmial.js";
+import passportUser from "../config/passportUser.js";
+import passport from "passport";
+passportUser();
+const loginUser = asyncHandler(async (req, res, next) => {
+  passport.authenticate("local", async (err, user, info) => {
+    try {
+      if (err) {
+        return next(err);
+      }
 
-const loginUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
+      if (!user) {
+        return res.status(401).json({ message: "Invalid email or password" });
+      }
 
-  const user = await User.findOne({ email });
+      req.login(user, async (err) => {
+        if (err) {
+          return next(err);
+        }
 
-  if (user && (await user.matchPassword(password))) {
-    generateToken(res, user._id);
-    res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-    });
-  } else {
-    res.status(401);
-    throw new Error(" Invalid email or password");
-  }
+        // Generate token and send response
+        generateToken(user._id, res);
+        return res.status(200).json({
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          message: "Logged in successfully",
+        });
+      });
+    } catch (err) {
+      return next(err);
+    }
+  })(req, res, next);
 });
 
+// Register user
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
-  const userExists = await User.findOne({ email });
+  try {
+    const userExists = await User.findOne({ email });
 
-  if (userExists) {
-    res.status(400);
-    throw new Error("User already Exists");
-  }
+    if (userExists) {
+      return res.status(400).json({ message: "User already exists" });
+    }
 
-  const user = await User.create({ name, email, password });
+    const newUser = await User.create({ name, email, password });
 
-  if (user) {
-    generateToken(res, user._id);
-    res.status(201);
-    res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
+    // Generate token and send response
+    generateToken(newUser._id, res);
+    return res.status(201).json({
+      _id: newUser._id,
+      name: newUser.name,
+      email: newUser.email,
+      message: "User registered successfully",
     });
-  } else {
-    res.status(400);
-    throw new Error("Invalid User Credentials");
+  } catch (err) {
+    return res.status(400).json({ message: "Invalid user data" });
   }
 });
 
@@ -112,7 +127,7 @@ const resetPassword = asyncHandler(async (req, res) => {
   user.passwordResetExpires = undefined;
   user.save();
 
-  generateToken(res, user._id);
+  generateToken(user._id, res);
 
   res.json({
     _id: user._id,

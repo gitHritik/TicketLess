@@ -37,6 +37,7 @@ const UnleaseBookTickets = () => {
 
       <div className="">
         <Payment
+          image={data.locationImage}
           price={data.price}
           include={data.included}
           notIncluded={data.notincluded}

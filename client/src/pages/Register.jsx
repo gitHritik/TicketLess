@@ -18,6 +18,8 @@ const Register = ({ visible, onClose, onFormSwitch }) => {
       visible == null;
     }
   };
+  console.log(visible);
+  console.log(onClose);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,7 +33,7 @@ const Register = ({ visible, onClose, onFormSwitch }) => {
     e.preventDefault();
     try {
       const res = await register({ name, email, password }).unwrap();
-      // dispatch(setCredentials({ ...res }));
+      dispatch(setCredentials({ ...res }));
       navigate("/");
       onFormSwitch("login");
       toast.success("Register Successful");

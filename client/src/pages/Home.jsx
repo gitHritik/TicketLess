@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar.jsx";
@@ -7,7 +8,7 @@ import Cards from "../components/Cards.jsx";
 import Footer from "../components/Footer.jsx";
 import Unlease from "../components/Unlease.jsx";
 import UnleaseMuseum from "../components/UnleaseMuseum.jsx";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BACKEND_URL } from "../constant.js";
 import { setCredentials } from "../slices/userSlice.js";
 
@@ -18,12 +19,14 @@ import { Outlet } from "react-router-dom";
 
 const Home = () => {
   const dispatch = useDispatch();
+
+  // const { userInfo } = useSelector((state) => state.user);
   const getUser = async () => {
     try {
       const res = await axios.get(`${BACKEND_URL}/auth/login/success`, {
         withCredentials: true,
       });
-      // console.log(res.data);
+      console.log("res.data", res.data);
       dispatch(
         setCredentials({
           ...res.data.user._json,
