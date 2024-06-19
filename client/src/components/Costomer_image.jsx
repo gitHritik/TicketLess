@@ -6,6 +6,7 @@ import { IoStar } from "react-icons/io5";
 import { Card } from "flowbite-react";
 import { Mightlikedata } from "../pages/data";
 import ReviewComment from "./ReviewComment";
+import { Link } from "react-router-dom";
 
 function Costomer_image({ popularOne, comment, images }) {
   var settings = {
@@ -77,45 +78,44 @@ function Costomer_image({ popularOne, comment, images }) {
           <hr />
           <div className="you_might_like_section my-10   w-[100%]   grid grid-cols-3 max-[850px]:grid-cols-2 max-[550px]:grid-cols-1 max-[1350px]:w-[90%] max-[1050px]:w-[98%] ">
             {popularOne?.map((d, id) => (
-              <div
-                key={id}
-                className=" max-w-[330px] rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 m-auto"
-              >
-                <img
-                  src={d.Mimage[0]}
-                  alt=""
-                  className="object-cover object-center w-full rounded-t-md h-[250px] dark:bg-gray-500"
-                />
-                <div className="flex flex-col justify-between p-2 space-y-2 h-[200px]">
-                  <div className="space-y-2">
-                    <h2 className="text-[20px] font-bold text-gray-400 tracking-wide">
-                      {d.Mname}
-                    </h2>
-                    <h2 className="text-3xl font-semibold tracking-wide">
-                      {d.title}
-                    </h2>
-                    <p className="dark:text-gray-800">
-                      {d.Mdescription.length > 100
-                        ? `${d.Mdescription.substring(0, 100)}...`
-                        : d.Mdescription}
-                    </p>
-                  </div>
-                  <div className="rating">
-                    <div className="ratingandprice flex justify-between m-auto mb-2 md:px-0 px-2">
-                      <div className=" flex gap-1">
-                        <p className="text-gray-900 md:text-xs font-medium text-[10px] leading-[1rem]">
-                          <span className="fa fa-star checked text-orange-400"></span>{" "}
-                          {d.Mlike}
-                        </p>
-                        <p className="text-gray-400 md:text-xs leading-[17px] text-[8px] font-medium">
-                          (23,456)
-                        </p>
+              <Link key={id} to={"/popularLocation/" + d?._id}>
+                <div className=" max-w-[330px] rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 m-auto">
+                  <img
+                    src={d.Mimage[0]}
+                    alt=""
+                    className="object-cover object-center w-full rounded-t-md h-[250px] dark:bg-gray-500"
+                  />
+                  <div className="flex flex-col justify-between p-2 space-y-2 h-[200px]">
+                    <div className="space-y-2">
+                      <h2 className="text-[20px] font-bold text-gray-400 tracking-wide">
+                        {d.Mname}
+                      </h2>
+                      <h2 className="text-3xl font-semibold tracking-wide">
+                        {d.title}
+                      </h2>
+                      <p className="dark:text-gray-800">
+                        {d.Mdescription.length > 100
+                          ? `${d.Mdescription.substring(0, 100)}...`
+                          : d.Mdescription}
+                      </p>
+                    </div>
+                    <div className="rating">
+                      <div className="ratingandprice flex justify-between m-auto mb-2 md:px-0 px-2">
+                        <div className=" flex gap-1">
+                          <p className="text-gray-900 md:text-xs font-medium text-[10px] leading-[1rem]">
+                            <span className="fa fa-star checked text-orange-400"></span>{" "}
+                            {d.Mlike}
+                          </p>
+                          <p className="text-gray-400 md:text-xs leading-[17px] text-[8px] font-medium">
+                            (23,456)
+                          </p>
+                        </div>
+                        <div className="price font-bold">INR Rs 200</div>
                       </div>
-                      <div className="price font-bold">INR Rs 200</div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

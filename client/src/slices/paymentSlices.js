@@ -1,10 +1,13 @@
 // src/features/payment/paymentSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
+const defaultDate = new Date().toISOString().split("T")[0]; // e.g., "2023-09-28"
+const defaultTime = "09:00-10:00 AM";
+
 const initialState = {
   cart: {
-    date: "",
-    time: "",
+    date: defaultDate,
+    time: defaultTime,
     price: "",
     image: "",
     location: "",
@@ -45,9 +48,12 @@ const paymentSlice = createSlice({
 
     resetPayment: (state) => {
       state.cart = {
-        // Updated to reset the cart object correctly
-        date: "",
-        time: "",
+        date: defaultDate,
+        time: defaultTime,
+        price: "",
+        image: "",
+        location: "",
+        museumName: "",
         tickets: { adult: 0, reduced: 0 },
       };
     },

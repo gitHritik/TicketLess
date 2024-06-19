@@ -20,6 +20,7 @@ const Upcoming = ({ bookings, onUpdateBooking }) => {
   const [showRegister, setShowRegister] = useState(false);
   const [currentForm, setCurrentForm] = useState("login");
   const [selectedBooking, setSelectedBooking] = useState(null);
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -41,17 +42,21 @@ const Upcoming = ({ bookings, onUpdateBooking }) => {
         status: "cancelled",
       });
       onUpdateBooking(bookingId, "cancelled");
-      // handleCloseCancellation();
     } catch (error) {
       console.error("Failed to cancel booking", error);
     }
   };
 
+  // Sort bookings by creation date (newest first)
+  const sortedBookings = [...bookings].sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  );
+
   return (
     <>
       <div data-aos="fade-up">
         <div className="rounded-lg ">
-          {bookings.map((item) => (
+          {sortedBookings.map((item) => (
             <div
               key={item._id}
               className="justify-between  mb-6 rounded-lg border-[1px] border-stone-300  bg-white p-6 shadow-md sm:flex sm:justify-start"
@@ -103,7 +108,6 @@ const Upcoming = ({ bookings, onUpdateBooking }) => {
                   </p>
                 </div>
 
-                {/* add & minus quantity */}
                 <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                   <div className="flex items-center border-gray-100"></div>
                   <div className="flex items-center space-x-4">

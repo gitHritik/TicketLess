@@ -38,7 +38,7 @@ const PopularBookTickets = () => {
     };
     getData();
   }, [path]);
-
+  console.log(data);
   return (
     <>
       <div className="">
@@ -47,6 +47,7 @@ const PopularBookTickets = () => {
 
       <div className="">
         <Payment
+          image={data?.Mimage}
           price={data?.Mprice}
           include={wholeData?.included}
           notIncluded={data?.notincluded}

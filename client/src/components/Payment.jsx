@@ -77,11 +77,19 @@ const Payment = ({
   const { userInfo } = useSelector((state) => state.user);
 
   const times = [
-    { name: "09:00-10:00", code: "NY" },
-    { name: "10:00-11:00", code: "RM" },
-    { name: "10:00-11:00", code: "LDN" },
-    { name: "11:00-12:00", code: "IST" },
-    { name: "12:00-01:00", code: "PRS" },
+    { name: "09:00-10:00 AM", code: "T1" },
+    { name: "10:00-11:00 AM", code: "T2" },
+    { name: "11:00-12:00 PM", code: "T3" },
+    { name: "12:00-01:00 PM", code: "T4" },
+    { name: "01:00-02:00 PM", code: "T5" },
+    { name: "02:00-03:00 PM", code: "T6" },
+    { name: "03:00-04:00 PM", code: "T7" },
+    { name: "04:00-05:00 PM", code: "T8" },
+    { name: "05:00-06:00 PM", code: "T9" },
+    { name: "06:00-07:00 PM", code: "T10" },
+    { name: "07:00-08:00 PM", code: "T11" },
+    { name: "08:00-09:00 PM", code: "T12" },
+    { name: "09:00-10:00 PM", code: "T13" },
   ];
 
   const handleSaveTickets = (ticketCounts, priceReducer, priceAdult) => {
@@ -147,6 +155,7 @@ const Payment = ({
   };
 
   const { cart } = useSelector((state) => state.payment);
+  console.log(cart);
 
   const makePayment = async () => {
     try {

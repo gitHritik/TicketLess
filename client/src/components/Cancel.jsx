@@ -15,10 +15,15 @@ const Cancel = ({ bookings }) => {
     AOS.init();
     AOS.refresh();
   }, []);
+
+  const sortedBookings = [...bookings].sort(
+    (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+  );
+
   return (
     <div data-aos="fade-up">
       <div className="rounded-lg">
-        {bookings.map((item) => (
+        {sortedBookings.map((item) => (
           <div
             key={item._id}
             className="justify-between mb-6 rounded-lg border-[1px] border-stone-300  bg-white p-6 shadow-md sm:flex sm:justify-start"
