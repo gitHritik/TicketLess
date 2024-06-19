@@ -13,8 +13,8 @@ const generateToken = (userId, res) => {
 
   res.cookie("auth_token", token, cookieOptions);
 
-  console.log("Token:", token);
-  console.log("Cookie options:", cookieOptions);
+  // console.log("Token:", token);
+  // console.log("Cookie options:", cookieOptions);
 };
 
 export default generateToken;

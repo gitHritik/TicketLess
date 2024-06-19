@@ -12,33 +12,37 @@ import paymentRoutes from "./routes/paymentRoutes.js";
 import passportUser from "./config/passportUser.js";
 import session from "express-session";
 import passport from "passport";
+import bodyParser from "body-parser";
+import bookRoutes from "./routes/bookingRoutes.js";
 
 const app = express();
 
 dotenv.config();
 app.use(cookieParser());
-app.use(cors());
 
 const corsOptions = {
   origin: "http://localhost:5173", // Replace with your frontend URL
   credentials: true, // Allow credentials
+  methods: "GET, POST, PATCH, DELETE, PUT",
 };
 app.use(cors(corsOptions));
+app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:5173");
   next();
 });
 
 // Initialize Passport
-passportUser();
+
 app.use(
   session({
-    secret: process.env.SECRET, // Use a strong, random secret
+    secret: process.env.SESSION_SECRET, // Use a strong, random secret
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false },
   })
 );
+passportUser();
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -51,6 +55,14 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "script-src 'self' https://js.stripe.com"
+  );
+  next();
+});
+
 passportUtil(app);
 
 app.use(express.json());
@@ -59,6 +71,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/images", imageRoutes);
 app.use("/api/images", unleaseRoutes);
 app.use("/api", paymentRoutes);
+app.use("/api", bookRoutes);
 
 app.listen(5000, () => {
   console.log("Running great!!! on http://localhost:5000");

@@ -137,7 +137,7 @@ const resetPassword = asyncHandler(async (req, res) => {
 });
 
 const logoutUser = asyncHandler(async (req, res) => {
-  res.cookie("jwt", "", {
+  res.cookie("auth_token", "", {
     httpOnly: true,
     expires: new Date(0),
   });

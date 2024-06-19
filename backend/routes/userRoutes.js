@@ -4,7 +4,7 @@ import {
   getUsers,
   loginUser,
   logoutUser,
-registerUser,
+  registerUser,
   resetPassword,
 } from "../controllers/userController.js";
 

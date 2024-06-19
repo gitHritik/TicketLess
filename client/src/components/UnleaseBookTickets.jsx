@@ -41,6 +41,8 @@ const UnleaseBookTickets = () => {
           price={data.price}
           include={data.included}
           notIncluded={data.notincluded}
+          Location={data.location}
+          MuseumName={data.museumName}
         />
       </div>
       <Link to="/">

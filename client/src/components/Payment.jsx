@@ -31,6 +31,8 @@ import {
   setPrice,
   setImage,
   resetPayment,
+  setLocation,
+  setmuseumName,
 } from "../slices/paymentSlices.js";
 
 import {
@@ -46,7 +48,14 @@ import { useNavigate } from "react-router-dom";
 import Login from "../pages/Login.jsx";
 import Register from "../pages/Register.jsx";
 
-const Payment = ({ price, include, notIncluded, image }) => {
+const Payment = ({
+  price,
+  include,
+  notIncluded,
+  image,
+  Location,
+  MuseumName,
+}) => {
   const [startDate, setStartDate] = useState(new Date());
   const today = new Date();
   const [selectedTime, setSelectedTime] = useState({
@@ -66,7 +75,7 @@ const Payment = ({ price, include, notIncluded, image }) => {
   const navigate = useNavigate();
 
   const { userInfo } = useSelector((state) => state.user);
-  console.log();
+
   const times = [
     { name: "09:00-10:00", code: "NY" },
     { name: "10:00-11:00", code: "RM" },
@@ -80,6 +89,8 @@ const Payment = ({ price, include, notIncluded, image }) => {
     setPriceReducer(priceReducer);
     setPriceAdult(priceAdult);
     dispatch(setTickets(ticketCounts));
+    dispatch(setLocation(Location));
+    dispatch(setmuseumName(MuseumName));
   };
 
   const handleTimeSelection = (time, event) => {
@@ -91,7 +102,6 @@ const Payment = ({ price, include, notIncluded, image }) => {
 
   const handleTimeChange = (time) => {
     dispatch(setTime(time.name));
-    console.log("Time changed and dispatched:", time.name);
   };
   const handleDateChange = (date) => {
     setStartDate(date);
@@ -137,46 +147,78 @@ const Payment = ({ price, include, notIncluded, image }) => {
   };
 
   const { cart } = useSelector((state) => state.payment);
-  console.log(cart);
 
   const makePayment = async () => {
-    const validateToken = await fetch(`${BACKEND_URL}/auth/validate-token`, {
-      method: "GET",
-      credentials: "include", // Ensure cookies are sent
-    });
+    try {
+      // Validate Token
+      const validateToken = await fetch(`${BACKEND_URL}/auth/validate-token`, {
+        method: "GET",
+        credentials: "include", // Ensure cookies are sent
+      });
 
-    if (validateToken.status !== 200) {
-      setShowLoginPopup(true);
-      return;
-    }
+      if (validateToken.status !== 200) {
+        setShowLoginPopup(true);
+        return;
+      }
 
-    const { userId } = await validateToken.json();
-    console.log("User ID:", userId);
+      const { userId } = await validateToken.json();
+      // console.log("User ID:", userId);
 
-    const stripe = await loadStripe(
-      "pk_test_51KaimASI6i4F9vZjKiOFaruoefN681OFGYax24iLCFM6bQF9QKPIdkdQNTMTPspbqePx25Y9EY2yab2nMAjy0nVq001vrBNDfJ"
-    );
+      // Load Stripe
+      const stripe = await loadStripe(
+        "pk_test_51KaimASI6i4F9vZjKiOFaruoefN681OFGYax24iLCFM6bQF9QKPIdkdQNTMTPspbqePx25Y9EY2yab2nMAjy0nVq001vrBNDfJ"
+      );
 
-    const body = {
-      products: cart,
-    };
-    const headers = {
-      "Content-Type": "application/json",
-    };
-    const response = await fetch(`${BACKEND_URL}/api/create-checkout-session`, {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(body),
-    });
+      const body = {
+        products: cart,
+        metadata: {
+          userId,
+          location: cart.location,
+          museumName: cart.museumName,
+          locationImage: cart.image,
+          date: cart.date,
+          time: cart.time,
+          tickets: JSON.stringify(cart.tickets),
+        },
+      };
+      const headers = {
+        "Content-Type": "application/json",
+      };
 
-    const session = await response.json();
+      // console.log("Sending request to create checkout session...");
 
-    const result = stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
+      // Create Checkout Session
+      const response = await fetch(
+        `${BACKEND_URL}/api/create-checkout-session`,
+        {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(body),
+          credentials: "include",
+        }
+      );
 
-    if (result.error) {
-      console.log(result.error);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const session = await response.json();
+      // console.log("Session created:", session);
+
+      if (!session.sessionId) {
+        throw new Error("No session ID returned from server");
+      }
+
+      // Redirect to Checkout
+      const result = await stripe.redirectToCheckout({
+        sessionId: session.sessionId,
+      });
+
+      if (result.error) {
+        console.log(result.error.message);
+      }
+    } catch (error) {
+      console.error("Error in makePayment:", error);
     }
   };
 

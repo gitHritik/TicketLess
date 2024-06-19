@@ -7,6 +7,8 @@ const initialState = {
     time: "",
     price: "",
     image: "",
+    location: "",
+    museumName: "",
     tickets: {
       adult: 0,
       reduced: 0,
@@ -34,6 +36,13 @@ const paymentSlice = createSlice({
       state.cart.image = action.payload;
     },
 
+    setLocation: (state, action) => {
+      state.cart.location = action.payload;
+    },
+    setmuseumName: (state, action) => {
+      state.cart.museumName = action.payload;
+    },
+
     resetPayment: (state) => {
       state.cart = {
         // Updated to reset the cart object correctly
@@ -51,6 +60,8 @@ export const {
   setPrice,
   setTickets,
   setImage,
+  setLocation,
+  setmuseumName,
   resetPayment,
 } = paymentSlice.actions;
 

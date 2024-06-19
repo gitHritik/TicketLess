@@ -20,49 +20,49 @@ router.get(
 );
 
 // Forward the request to Google's authentication server
-router.get("/google", async (req, res) => {
-  try {
-    const response = await axios.get(
-      "https://accounts.google.com/o/oauth2/v2/auth",
-      {
-        params: req.query,
-      }
-    );
-    res.send(response);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
+router.get(
+  "/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
 
 // Register or login user to DB
 router.get("/login/success", async (req, res) => {
-  console.log("req.user:", req.user);
-  if (req.user) {
-    let userExists = await User.findOne({ email: req.user._json.email });
-    if (userExists) {
-      generateToken(userExists._id, res);
-    } else {
+  try {
+    console.log("req.user:", req.user);
+
+    if (!req.user || !req.user.email) {
+      return res.status(403).json({
+        message: "Not Authorized",
+      });
+    }
+
+    // Check if user exists in the database
+    let userExists = await User.findOne({ email: req.user.email });
+
+    if (!userExists) {
+      // If user does not exist, create a new user
       const newUser = new User({
-        name: req.user._json.name,
-        email: req.user._json.email,
-        password: Date.now(),
+        name: req.user.name,
+        email: req.user.email,
+        password: Date.now().toString(), // This should not be a random password, but for demonstration purposes
       });
       userExists = await newUser.save();
-      generateToken(userExists._id, res);
     }
+
+    // Generate token and send response
+    generateToken(userExists._id, res);
 
     res.status(200).json({
       user: { ...req.user },
       message: "Successfully logged in",
       _id: userExists._id,
     });
-  } else {
-    res.status(403).json({
-      message: "Not Authorized",
-    });
+  } catch (error) {
+    console.error("Error in login success route:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
 // Login failed
 router.get("/login/failed", (req, res) => {
   res.status(401);
@@ -75,18 +75,19 @@ router.get("/validate-token", authenticateJWT, (req, res) => {
 
 // Logout
 router.get("/logout", (req, res) => {
-  req.logout((err) => {
-    if (err) {
-      console.log(err);
-    }
-    // Clear the cookie with matching options
-    // res.clearCookie("auth_token", {
-    //   httpOnly: true,
-    //   secure: process.env.NODE_ENV === "production",
-    //   sameSite: "Strict",
-    // });
-    res.redirect("/");
+  req.logout(); // Logout the user from Passport session
+
+  // Clear the authentication token (if using tokens stored in cookies)
+  res.clearCookie("auth_token", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "Strict",
   });
+
+  // Clear userInfo from local storage
+  localStorage.removeItem("userInfo");
+
+  res.redirect("/");
 });
 
 export default router;

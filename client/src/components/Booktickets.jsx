@@ -27,7 +27,7 @@ const Booktickets = () => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  console.log(data);
   return (
     <>
       <div className="">
@@ -40,6 +40,8 @@ const Booktickets = () => {
           price={data?.price}
           include={data?.included}
           notIncluded={data?.notincluded}
+          Location={data.location}
+          MuseumName={data.museumName}
         />
       </div>
       <Link to="/">

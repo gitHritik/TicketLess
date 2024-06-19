@@ -131,7 +131,12 @@ const Navbar = () => {
               Contact us
             </Link>
             {userInfo ? (
-              <span>Hi, {userInfo.given_name || userInfo.name}</span>
+              <span>
+                Hi,{" "}
+                {userInfo.given_name
+                  ? userInfo.given_name.split(" ")[0]
+                  : userInfo.name.split(" ")[0]}
+              </span>
             ) : (
               <Link
                 className="text-white mr-4 "

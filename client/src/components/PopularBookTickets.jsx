@@ -39,9 +39,6 @@ const PopularBookTickets = () => {
     getData();
   }, [path]);
 
-  console.log("wholeData :", wholeData);
-  console.log("data:", data);
-
   return (
     <>
       <div className="">
@@ -53,6 +50,8 @@ const PopularBookTickets = () => {
           price={data?.Mprice}
           include={wholeData?.included}
           notIncluded={data?.notincluded}
+          Location={wholeData.location}
+          MuseumName={data.Mname}
         />
       </div>
       <Link to="/">

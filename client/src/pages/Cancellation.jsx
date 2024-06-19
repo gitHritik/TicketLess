@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 import { GoVersions } from "react-icons/go";
 
-const Cancellation = ({ visible, onClose }) => {
+const Cancellation = ({ booking, onClose, onCancel, visible }) => {
   const [showHours, setShowHours] = useState(true);
   // const [current, setCurrent] = useState(true);
 
@@ -13,12 +13,9 @@ const Cancellation = ({ visible, onClose }) => {
   //   setShowHours(false);
   // };
 
-  const handleClick = async () => {
-    setShowHours(!visible);
-  };
+  // const handleClick = async () => {
 
-  console.log(visible);
-  console.log(showHours);
+  // };
 
   // if (setCurrent) visible === null;
 
@@ -30,10 +27,17 @@ const Cancellation = ({ visible, onClose }) => {
       setShowHours(true);
     }
   };
+
+  const handleCancel = () => {
+    onCancel(booking._id);
+    setShowHours(!visible);
+  };
+  console.log(showHours);
+  console.log(visible);
   return (
     <>
       {showHours ? (
-        <div className="flex justify-center items-center align-middle h-full fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-10">
+        <div className="fixed inset-0 flex h-[full] items-center justify-center bg-black bg-opacity-50">
           <div className="md:max-w-sm max-w-[20rem] p-6 bg-white border border-gray-200 rounded-lg shadow  dark:border-gray-700">
             <h1 className="mb-3 text-[20px] text-black text-center font-bold">
               Are you absolutely sure?
@@ -53,7 +57,7 @@ const Cancellation = ({ visible, onClose }) => {
               </button>
               <button
                 type="button"
-                onClick={handleClick}
+                onClick={handleCancel}
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               >
                 Continue
@@ -63,7 +67,7 @@ const Cancellation = ({ visible, onClose }) => {
           {/* <HoursPage onClose={handleCloseHours} visible={showHours} /> */}
         </div>
       ) : (
-        <div className="flex justify-center items-center align-middle h-full fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-10">
+        <div className="flex justify-center items-center align-middle h-[full] fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-10">
           <div className="block max-w-[306px] md:max-w-full rounded-lg bg-white p-6 text-surface shadow-secondary-1 dark:bg-surface-dark text-black">
             <h5 className="mb-2 text-xl font-medium leading-tight">
               Money Refund

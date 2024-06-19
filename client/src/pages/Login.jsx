@@ -50,7 +50,7 @@ const Login = ({ visible, onClose, onFormSwitch }) => {
       onClose();
       toast.success("Login Successful");
     } catch (error) {
-      toast.error("Invalid Username Or Password");
+      toast.error("Invalid Email Or Password");
     }
   };
   const [forgotPassword] = useForgotPasswordMutation();
@@ -68,7 +68,7 @@ const Login = ({ visible, onClose, onFormSwitch }) => {
 
   const handleGoogleAuth = () => {
     try {
-      window.location.href = `${BACKEND_URL}/auth/google/callback`;
+      window.location.href = `${BACKEND_URL}/auth/google`;
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }

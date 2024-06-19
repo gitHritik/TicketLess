@@ -15,11 +15,42 @@ import Box from "@mui/material/Box";
 import Upcoming from "../components/Upcoming";
 import Expired from "../components/Expired";
 import Cancel from "../components/Cancel";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { BACKEND_URL } from "../constant";
 
 const MyBookings = () => {
+  const [bookings, setBookings] = useState([]);
+  const { userInfo } = useSelector((state) => state.user);
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
+
+    // Function to validate token and fetch userId
+    const fetchUserIdAndBookings = async () => {
+      try {
+        const validateToken = await fetch(
+          `${BACKEND_URL}/auth/validate-token`,
+          {
+            method: "GET",
+            credentials: "include", // Ensure cookies are sent
+          }
+        );
+
+        const { userId } = await validateToken.json();
+
+        // Fetch user bookings based on userId
+        const response = await axios.get(
+          `${BACKEND_URL}/api/booking/${userId}`
+        );
+        setBookings(response.data);
+      } catch (error) {
+        console.error("Error fetching userId or bookings:", error);
+      }
+    };
+
+    fetchUserIdAndBookings();
   }, []);
 
   const [value, setValue] = useState("1");
@@ -27,6 +58,24 @@ const MyBookings = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const onUpdateBooking = (bookingId, newStatus) => {
+    setBookings((prevBookings) =>
+      prevBookings.map((booking) =>
+        booking._id === bookingId ? { ...booking, Status: newStatus } : booking
+      )
+    );
+  };
+  const upcomingBookings = bookings.filter(
+    (booking) => booking.Status === "confirmed"
+  );
+  const expiredBookings = bookings.filter(
+    (booking) => booking.Status === "expired"
+  );
+  const cancelledBookings = bookings.filter(
+    (booking) => booking.Status === "cancelled"
+  );
+
   return (
     <div>
       <Navbar />
@@ -59,15 +108,17 @@ const MyBookings = () => {
                     <Tab label="Cancelled" value="3" />
                   </TabList>
                 </Box>
-                <TabPanel disableGutters value="1">
-                  <Upcoming />
+                <TabPanel value="1">
+                  <Upcoming
+                    bookings={upcomingBookings}
+                    onUpdateBooking={onUpdateBooking}
+                  />
                 </TabPanel>
                 <TabPanel value="2">
-                  <Expired />
+                  <Expired bookings={expiredBookings} />
                 </TabPanel>
                 <TabPanel value="3">
-                  {" "}
-                  <Cancel />{" "}
+                  <Cancel bookings={cancelledBookings} />{" "}
                 </TabPanel>
               </TabContext>
             </div>

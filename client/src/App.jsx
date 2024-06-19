@@ -21,6 +21,7 @@ import Booktickets from "./components/Booktickets.jsx";
 import UnleaseInformation from "./pages/UnleaseInformation.jsx";
 import UnleaseBookTickets from "./components/UnleaseBookTickets.jsx";
 import PopularBookTickets from "./components/PopularBookTickets.jsx";
+import Success from "./pages/Success.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -34,6 +35,7 @@ const App = () => {
         <Route exact path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/booking" element={<MyBookings />} />
+        <Route path="/success" element={<Success />} />
         <Route path="/cancellation" element={<Cancellation />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/locationinfo/:id" element={<DestInfromation />} />

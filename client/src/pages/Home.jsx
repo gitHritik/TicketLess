@@ -26,10 +26,11 @@ const Home = () => {
       const res = await axios.get(`${BACKEND_URL}/auth/login/success`, {
         withCredentials: true,
       });
-      console.log("res.data", res.data);
+
+      // console.log("res.data.user", res.data.user);
       dispatch(
         setCredentials({
-          ...res.data.user._json,
+          ...res.data.user._doc,
           _id: res.data.id,
         })
       );

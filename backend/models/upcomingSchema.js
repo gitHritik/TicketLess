@@ -8,7 +8,7 @@ const upcomingSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    locationImage: {},
+    locationImage: [],
     Date: { type: Number },
     Time: { type: Number },
     People: { type: String },

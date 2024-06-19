@@ -19,7 +19,8 @@ const passportUser = () => {
             });
           }
 
-          if (!(await user.matchPassword(password))) {
+          const isMatch = await user.matchPassword(password);
+          if (!isMatch) {
             return done(null, false, {
               message: "Incorrect email or password",
             });
@@ -37,10 +38,16 @@ const passportUser = () => {
     done(null, user.id);
   });
 
-  passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => {
-      done(err, user);
-    });
+  passport.deserializeUser(async (id, done) => {
+    try {
+      const user = await User.findById(id);
+      if (!user) {
+        return done(null, false);
+      }
+      return done(null, user);
+    } catch (err) {
+      return done(err);
+    }
   });
 };
 
